@@ -11,17 +11,39 @@ import UIKit
 class GameViewController: UIViewController {
   
   @IBOutlet weak var menuLeadingConstraint: NSLayoutConstraint!
+  @IBOutlet weak var playerOneCardView: PlayerCardView!
+  @IBOutlet weak var playerTwoCardView: PlayerCardView!
+  
+  
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    
+    playerCardSetup()
   }
   
   
+  // MARK: - Setup
   
+  private func playerCardSetup() {
+    playerOneCardView.playerNameLabel.text = "Player 1"
+    playerOneCardView.playerSymbolImageView.image = UIImage(assetIdentifier: .cross)
+    playerOneCardView.playerWinCountLabel.text = "Wins: 0"
+    
+    playerTwoCardView.playerNameLabel.text = "Player 2"
+    playerTwoCardView.playerSymbolImageView.image = UIImage(assetIdentifier: .nought)
+    playerTwoCardView.playerWinCountLabel.text = "Wins: 0"
+    
+    addGestures()
+  }
   
-  
+  private func addGestures() {
+    let playerOneCardTapGesture = UITapGestureRecognizer(target: self, action: #selector(playerOneCardTapped))
+    let playerTwoCardTapGesture = UITapGestureRecognizer(target: self, action: #selector(playerTwoCardTapped))
+    
+    playerOneCardView.addGestureRecognizer(playerOneCardTapGesture)
+    playerTwoCardView.addGestureRecognizer(playerTwoCardTapGesture)
+  }
   
   
   @IBAction func openMenu(_ sender: UIBarButtonItem) {
@@ -31,6 +53,16 @@ class GameViewController: UIViewController {
     }
   }
   
+  @objc private func playerOneCardTapped() {
+  }
+  
+  @objc private func playerTwoCardTapped() {
+  }
 
+  
+  private func presentPlayerCardPopup(_ playerNumber: Int) {
+  }
+
+  
 }
 

@@ -12,8 +12,9 @@ extension UIImage {
   enum AssetIdentifier: String {
     case cross = "cross"
     case nought = "nought"
+    case cancelButton = "cancelButton"
     
-    static let values = [cross, nought]
+    static let values = [cross, nought, cancelButton]
   }
   
   convenience init!(assetIdentifier: AssetIdentifier) {

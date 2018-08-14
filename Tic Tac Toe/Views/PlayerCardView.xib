@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlayerCardView" customModule="Tic_Tac_Toe" customModuleProvider="target">
+            <connections>
+                <outlet property="playerCardFrame" destination="viF-L8-D6W" id="r6Z-wx-QmS"/>
+                <outlet property="playerNameLabel" destination="MRt-sx-lO0" id="2Hn-9x-Q98"/>
+                <outlet property="playerSymbolImageView" destination="2O1-dh-la3" id="B9E-dd-8tp"/>
+                <outlet property="playerWinCountLabel" destination="aYg-zK-rB7" id="NBE-7k-C4D"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="188" height="200"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="viF-L8-D6W">
+                    <rect key="frame" x="0.0" y="0.0" width="187.5" height="200"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MRt-sx-lO0">
+                            <rect key="frame" x="62" y="8" width="62" height="24"/>
+                            <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wins: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aYg-zK-rB7">
+                            <rect key="frame" x="65" y="168" width="57" height="24"/>
+                            <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cross" translatesAutoresizingMaskIntoConstraints="NO" id="2O1-dh-la3">
+                            <rect key="frame" x="43" y="50" width="100" height="100"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="100" id="D5c-TO-MfC"/>
+                                <constraint firstAttribute="height" constant="100" id="xag-7c-egS"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="2O1-dh-la3" firstAttribute="centerX" secondItem="viF-L8-D6W" secondAttribute="centerX" id="Xbp-C9-kFm"/>
+                        <constraint firstItem="MRt-sx-lO0" firstAttribute="top" secondItem="viF-L8-D6W" secondAttribute="top" constant="8" id="YZM-qb-VDl"/>
+                        <constraint firstItem="2O1-dh-la3" firstAttribute="centerY" secondItem="viF-L8-D6W" secondAttribute="centerY" id="ZGi-03-2Og"/>
+                        <constraint firstItem="aYg-zK-rB7" firstAttribute="centerX" secondItem="viF-L8-D6W" secondAttribute="centerX" id="leK-Pe-o59"/>
+                        <constraint firstItem="MRt-sx-lO0" firstAttribute="centerX" secondItem="viF-L8-D6W" secondAttribute="centerX" id="rl2-2B-oEF"/>
+                        <constraint firstAttribute="bottom" secondItem="aYg-zK-rB7" secondAttribute="bottom" constant="8" id="wrf-ca-WDS"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="viF-L8-D6W" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="3vl-Zs-M54"/>
+                <constraint firstAttribute="trailing" secondItem="viF-L8-D6W" secondAttribute="trailing" id="XcJ-7N-qpS"/>
+                <constraint firstItem="viF-L8-D6W" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="pO6-x0-5On"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="viF-L8-D6W" secondAttribute="bottom" id="qC4-gC-xvz"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="-61" y="-180"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="cross" width="44" height="44"/>
+    </resources>
+</document>
