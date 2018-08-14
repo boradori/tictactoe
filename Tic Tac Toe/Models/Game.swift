@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Game {
+class Game {
   var name: String
   var result: String
   var board: Board

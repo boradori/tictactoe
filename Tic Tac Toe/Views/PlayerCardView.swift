@@ -8,6 +8,7 @@
 
 import UIKit
 
+@IBDesignable
 class PlayerCardView: UIView {
   private var view: UIView!
   

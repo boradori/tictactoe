@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "nought1x.pdf",
+      "filename" : "emptyGrid1x.pdf",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "nought2x.pdf",
+      "filename" : "emptyGrid2x.pdf",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "nought3x.pdf",
+      "filename" : "emptyGrid3x.pdf",
       "scale" : "3x"
     }
   ],

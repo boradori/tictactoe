@@ -20,8 +20,6 @@
 		0C88D535212078F90012427D /* Records.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C88D534212078F90012427D /* Records.swift */; };
 		0C88D5392121A8220012427D /* PlayerCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C88D5382121A8220012427D /* PlayerCardView.xib */; };
 		0C88D53B2121AB150012427D /* PlayerCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C88D53A2121AB150012427D /* PlayerCardView.swift */; };
-		0C88D5572122AC400012427D /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C88D5562122AC400012427D /* BoardView.swift */; };
-		0C88D5592122AC5E0012427D /* BoardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C88D5582122AC5E0012427D /* BoardView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,8 +38,6 @@
 		0C88D534212078F90012427D /* Records.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Records.swift; sourceTree = "<group>"; };
 		0C88D5382121A8220012427D /* PlayerCardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerCardView.xib; sourceTree = "<group>"; };
 		0C88D53A2121AB150012427D /* PlayerCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCardView.swift; sourceTree = "<group>"; };
-		0C88D5562122AC400012427D /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
-		0C88D5582122AC5E0012427D /* BoardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BoardView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,8 +108,6 @@
 				0C88D54A21227F950012427D /* Storyboards */,
 				0C88D5382121A8220012427D /* PlayerCardView.xib */,
 				0C88D53A2121AB150012427D /* PlayerCardView.swift */,
-				0C88D5582122AC5E0012427D /* BoardView.xib */,
-				0C88D5562122AC400012427D /* BoardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -193,7 +187,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C08B3A0211FF1020038B98E /* LaunchScreen.storyboard in Resources */,
-				0C88D5592122AC5E0012427D /* BoardView.xib in Resources */,
 				0C88D5392121A8220012427D /* PlayerCardView.xib in Resources */,
 				0C08B39D211FF1020038B98E /* Assets.xcassets in Resources */,
 				0C08B39B211FF1000038B98E /* Main.storyboard in Resources */,
@@ -214,7 +207,6 @@
 				0C88D53321206BCE0012427D /* UIImage+AssetIdentifier.swift in Sources */,
 				0C08B396211FF1000038B98E /* AppDelegate.swift in Sources */,
 				0C88D5302120659F0012427D /* PlayerTwo.swift in Sources */,
-				0C88D5572122AC400012427D /* BoardView.swift in Sources */,
 				0C88D52E21205E800012427D /* Board.swift in Sources */,
 				0C88D52C21205E590012427D /* Game.swift in Sources */,
 			);

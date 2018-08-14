@@ -8,14 +8,14 @@
 
 import UIKit
 
-struct PlayerOne {
+class PlayerOne {
   var name: String
   var symbol: UIImage
   var wins: Int
   
   init(name: String, symbol: UIImage, wins: Int) {
-    self.name = "Player 1"
-    self.symbol = UIImage(assetIdentifier: .cross)
-    self.wins = 0
+    self.name = name
+    self.symbol = symbol
+    self.wins = wins
   }
 }

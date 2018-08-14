@@ -8,12 +8,10 @@
 
 import UIKit
 
-struct Board {
-  var grids: [[UIImage]]
+class Board {
+  var grids: [Int]
   
-  init(grid: [[UIImage]]) {
-    self.grids = [[UIImage(), UIImage(), UIImage()],
-                  [UIImage(), UIImage(), UIImage()],
-                  [UIImage(), UIImage(), UIImage()]]
+  init(grids: [Int]) {
+    self.grids = grids
   }
 }

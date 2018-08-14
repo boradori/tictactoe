@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Records {
+class Records {
   var games: [Game]
   
   init(games: [Game]) {
