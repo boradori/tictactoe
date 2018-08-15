@@ -17,6 +17,7 @@ class GameViewController: UIViewController {
   
   private var board = Board()
   private var gameIsActive = true
+  private var gameIsStarted = false
   
   private var playerOne = Player(number: 1, name: "Player 1", symbol: UIImage(assetIdentifier: .cross), wins: 0) {
     didSet {
@@ -98,6 +99,7 @@ class GameViewController: UIViewController {
     let storyboard = UIStoryboard(name: "PlayerPopup", bundle: nil)
     if let vc = storyboard.instantiateViewController(withIdentifier: "playerPopupVC") as? PlayerPopupViewController {
       vc.player = playerOne
+      vc.gameIsStarted = gameIsStarted
       vc.doneSaving = doneSaving
       
       present(vc, animated: true, completion: nil)
@@ -108,6 +110,7 @@ class GameViewController: UIViewController {
     let storyboard = UIStoryboard(name: "PlayerPopup", bundle: nil)
     if let vc = storyboard.instantiateViewController(withIdentifier: "playerPopupVC") as? PlayerPopupViewController {
       vc.player = playerTwo
+      vc.gameIsStarted = gameIsStarted
       vc.doneSaving = doneSaving
       
       present(vc, animated: true, completion: nil)
@@ -127,12 +130,18 @@ class GameViewController: UIViewController {
     if board.grids[sender.tag - 1] == 0 && gameIsActive == true {
       board.grids[sender.tag - 1] = activePlayer
       
+      gameIsStarted = true
+      
       if activePlayer == 1 {
-        sender.setImage(UIImage(assetIdentifier: .cross), for: UIControlState())
+        DispatchQueue.main.async {
+          sender.setImage(self.playerOne.symbol, for: UIControlState())
+        }
         
         activePlayer = 2
       } else {
-        sender.setImage(UIImage(assetIdentifier: .nought), for: UIControlState())
+        DispatchQueue.main.async {
+          sender.setImage(self.playerTwo.symbol, for: UIControlState())
+        }
         activePlayer = 1
       }
     }
@@ -179,6 +188,7 @@ class GameViewController: UIViewController {
   }
   
   private func startNewGame() {
+    gameIsStarted = false
     gameCount += 1
     let gameName = "Game \(gameCount)"
     board = Board()

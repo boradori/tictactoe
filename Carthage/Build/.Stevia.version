@@ -1,0 +1,9 @@
+{
+  "commitish" : "4.3.0",
+  "iOS" : [
+    {
+      "name" : "Stevia",
+      "hash" : "9d6a22745bfdc8c76f39ceaf953c3394c1e1dd71fe54e931c87be0ec44608869"
+    }
+  ]
+}
