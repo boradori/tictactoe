@@ -281,7 +281,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="startNewGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="k6e-Ls-VLS"/>
+                                            <action selector="newGameTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fSh-s3-ptj"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -314,6 +314,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="QLc-U1-eBd"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="gridView" destination="kNt-I1-pBa" id="Ygl-a8-UZ4"/>
                         <outlet property="menuLeadingConstraint" destination="X7V-an-sSC" id="8mT-ZI-cqJ"/>
                         <outlet property="playerOneCardView" destination="oXi-d8-eda" id="X1s-nC-W2D"/>
                         <outlet property="playerTwoCardView" destination="423-fg-gp6" id="ufT-kA-ABd"/>

@@ -8,12 +8,12 @@
 
 import Foundation
 
-class Game {
+struct Game {
   var name: String
-  var result: String
-  var board: Board
+  var result: String?
+  var board: Board?
   
-  init(name: String, result: String, board: Board) {
+  init(name: String, result: String?, board: Board?) {
     self.name = name
     self.result = result
     self.board = board

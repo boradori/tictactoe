@@ -9,11 +9,19 @@
 import UIKit
 
 class GameViewController: UIViewController {
-  var board = Board(grids: [0, 0, 0, 0, 0, 0, 0, 0, 0])
+  private var gameCount = 1
+  private var game = Game(name: "Game 1", result: nil, board: nil)
+  private var result: String?
+  
+  var games = [Game]()
+  
+  private var board = Board()
   private var gameIsActive = true
   
-  var playerOne = PlayerOne(name: "Player 1", symbol: UIImage(assetIdentifier: .cross), wins: 0)
-  var playerTwo = PlayerTwo(name: "Player 2", symbol: UIImage(assetIdentifier: .nought), wins: 0)
+  var playerOne = Player(number: 1, name: "Player 1", symbol: UIImage(assetIdentifier: .cross), wins: 0)
+  var playerTwo = Player(number: 2, name: "Player 2", symbol: UIImage(assetIdentifier: .nought), wins: 0)
+  
+  @IBOutlet weak var gridView: UIView!
   
   private var activePlayer = 1 {
     didSet {
@@ -99,17 +107,22 @@ class GameViewController: UIViewController {
       }
     }
     
-    let winningCombinations = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]
-    
-    for combination in winningCombinations {
-      if board.grids[combination[0]] != 0 && board.grids[combination[0]] == board.grids[combination[1]] && board.grids[combination[1]] == board.grids[combination[2]] {
-        gameIsActive = false
-        
+    for combination in board.winningCombinations {
+      if board.grids[combination[0]] != 0 && board.grids[combination[0]] == board.grids[combination[1]] && board.grids[combination[1]] == board.grids[combination[2]] && gameIsActive == true {
         if board.grids[combination[0]] == 1 {
           print("cross")
+          result = "\(playerOne.name) WON!"
+          saveGame(playerOne)
+          playerOneCardView.playerWinCountLabel.text = "\(playerOne.wins)"
+          // pop up to ask for a new game
         } else {
           print("nought")
+          result = "\(playerTwo.name) WON!"
+          saveGame(playerTwo)
+          playerTwoCardView.playerWinCountLabel.text = "\(playerTwo.wins)"
+          // pop up to ask for a new game
         }
+        gameIsActive = false
       }
     }
     
@@ -124,14 +137,23 @@ class GameViewController: UIViewController {
       }
       
       if gameIsActive == false {
-        print("draw")
+        result = "DRAW!"
+        saveGame(nil)
+        // pop up to ask for a new game
       }
     }
-    
   }
   
-  @IBAction func startNewGame(_ sender: UIButton) {
-    board.grids = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+  @IBAction func newGameTapped(_ sender: UIButton) {
+    startNewGame()
+  }
+  
+  private func startNewGame() {
+    gameCount += 1
+    let gameName = "Game \(gameCount)"
+    board = Board()
+    game = Game(name: gameName, result: nil, board: board)
+    
     gameIsActive = true
     activePlayer = 1
     
@@ -141,6 +163,18 @@ class GameViewController: UIViewController {
     }
     
     slideSidebar()
+  }
+  
+  private func saveGame(_ winner: Player?) {
+    if winner?.number == playerOne.number {
+      playerOne.wins += 1
+    } else if winner?.number == playerTwo.number {
+      playerTwo.wins += 1
+    } else {
+      return
+    }
+    
+    games.append(game)
   }
   
   private func slideSidebar() {
