@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wgF-2T-VUy">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Player Popup View Controller-->
+        <scene sceneID="BpO-yS-1pp">
+            <objects>
+                <viewController storyboardIdentifier="playerPopupVC" modalPresentationStyle="overCurrentContext" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wgF-2T-VUy" customClass="PlayerPopupViewController" customModule="Tic_Tac_Toe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZaS-OM-afX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gQc-60-dhv">
+                                <rect key="frame" x="67" y="120" width="240" height="240"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Player 1" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TLm-za-Ayn">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="41"/>
+                                        <color key="backgroundColor" red="0.37647058820000001" green="0.73725490199999999" blue="0.81960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="30"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                    </textField>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cross" translatesAutoresizingMaskIntoConstraints="NO" id="nDK-PN-qDn">
+                                        <rect key="frame" x="58" y="57.5" width="125" height="125"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="125" id="EYL-4d-M4l"/>
+                                            <constraint firstAttribute="height" constant="125" id="Fe0-aH-pY5"/>
+                                        </constraints>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2lf-uF-eTK">
+                                        <rect key="frame" x="0.0" y="200" width="240" height="40"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TiZ-rV-8BV">
+                                                <rect key="frame" x="0.0" y="0.0" width="120" height="40"/>
+                                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="20"/>
+                                                <state key="normal" title="Save">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="save:" destination="wgF-2T-VUy" eventType="touchUpInside" id="YWf-6i-Kqc"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gUw-zU-nas">
+                                                <rect key="frame" x="120" y="0.0" width="120" height="40"/>
+                                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="20"/>
+                                                <state key="normal" title="Cancel">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="cancel:" destination="wgF-2T-VUy" eventType="touchUpInside" id="uWP-QT-C7g"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="RcK-jw-5xn"/>
+                                            <constraint firstItem="TiZ-rV-8BV" firstAttribute="width" secondItem="gUw-zU-nas" secondAttribute="width" id="rIj-sZ-4Op"/>
+                                        </constraints>
+                                    </stackView>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r0S-LY-Uaq">
+                                        <rect key="frame" x="191" y="57" width="15" height="15"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="15" id="cqL-6y-Gjm"/>
+                                            <constraint firstAttribute="width" constant="15" id="tX6-kU-vBP"/>
+                                        </constraints>
+                                        <state key="normal" image="cancelButton"/>
+                                        <connections>
+                                            <action selector="removePhoto:" destination="wgF-2T-VUy" eventType="touchUpInside" id="Q16-Zt-6c0"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="2lf-uF-eTK" secondAttribute="bottom" id="0sZ-uq-5sP"/>
+                                    <constraint firstItem="TLm-za-Ayn" firstAttribute="top" secondItem="gQc-60-dhv" secondAttribute="top" id="2dt-fa-zvb"/>
+                                    <constraint firstAttribute="trailing" secondItem="TLm-za-Ayn" secondAttribute="trailing" id="HUE-Lh-KXq"/>
+                                    <constraint firstItem="2lf-uF-eTK" firstAttribute="leading" secondItem="gQc-60-dhv" secondAttribute="leading" id="K6z-cK-3wy"/>
+                                    <constraint firstItem="TLm-za-Ayn" firstAttribute="leading" secondItem="gQc-60-dhv" secondAttribute="leading" id="LVn-dD-hQ6"/>
+                                    <constraint firstAttribute="height" constant="240" id="WRg-v5-IAO"/>
+                                    <constraint firstAttribute="trailing" secondItem="2lf-uF-eTK" secondAttribute="trailing" id="agA-uP-2WA"/>
+                                    <constraint firstItem="nDK-PN-qDn" firstAttribute="centerX" secondItem="gQc-60-dhv" secondAttribute="centerX" id="am9-2r-WYf"/>
+                                    <constraint firstItem="r0S-LY-Uaq" firstAttribute="leading" secondItem="nDK-PN-qDn" secondAttribute="trailing" constant="8" id="f3Z-NH-qsu"/>
+                                    <constraint firstItem="nDK-PN-qDn" firstAttribute="centerY" secondItem="gQc-60-dhv" secondAttribute="centerY" id="nKB-to-khC"/>
+                                    <constraint firstItem="r0S-LY-Uaq" firstAttribute="top" secondItem="nDK-PN-qDn" secondAttribute="top" id="sB1-3S-Dtq"/>
+                                    <constraint firstAttribute="width" constant="240" id="v2U-z6-fGy"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.62246192893401009" green="0.62246192893401009" blue="0.62246192893401009" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="gQc-60-dhv" firstAttribute="top" secondItem="L6w-5Z-1tT" secondAttribute="top" constant="100" id="XVF-K5-KcN"/>
+                            <constraint firstItem="gQc-60-dhv" firstAttribute="centerX" secondItem="ZaS-OM-afX" secondAttribute="centerX" id="por-pi-Dkr"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="L6w-5Z-1tT"/>
+                    </view>
+                    <connections>
+                        <outlet property="playerNameTextField" destination="TLm-za-Ayn" id="Wth-C4-cA7"/>
+                        <outlet property="playerSymbolImageView" destination="nDK-PN-qDn" id="oZ0-Jk-vbq"/>
+                        <outlet property="removePhotoButton" destination="r0S-LY-Uaq" id="2jr-lX-iUT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zjW-fw-LcT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1680.8" y="-564.46776611694156"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="cancelButton" width="92" height="92"/>
+        <image name="cross" width="244" height="262"/>
+    </resources>
+</document>

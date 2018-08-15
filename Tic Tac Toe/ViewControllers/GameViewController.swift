@@ -66,6 +66,9 @@ class GameViewController: UIViewController {
     playerOneCardView.playerCardFrame.layer.borderColor = UIColor.black.cgColor
     playerOneCardView.playerCardFrame.layer.borderWidth = 4.0
     
+    playerOneCardView.playerCardFrame.addRoundedCorners()
+    playerTwoCardView.playerCardFrame.addRoundedCorners()
+    
     addGestures()
   }
   
@@ -77,15 +80,26 @@ class GameViewController: UIViewController {
     playerTwoCardView.addGestureRecognizer(playerTwoCardTapGesture)
   }
   
-  
   @IBAction func openMenu(_ sender: UIBarButtonItem) {
     slideSidebar()
   }
   
   @objc private func playerOneCardTapped() {
+    let storyboard = UIStoryboard(name: "PlayerPopup", bundle: nil)
+    if let vc = storyboard.instantiateViewController(withIdentifier: "playerPopupVC") as? PlayerPopupViewController {
+      vc.player = playerOne
+      
+      present(vc, animated: true, completion: nil)
+    }
   }
   
   @objc private func playerTwoCardTapped() {
+    let storyboard = UIStoryboard(name: "PlayerPopup", bundle: nil)
+    if let vc = storyboard.instantiateViewController(withIdentifier: "playerPopupVC") as? PlayerPopupViewController {
+      vc.player = playerTwo
+      
+      present(vc, animated: true, completion: nil)
+    }
   }
 
   
