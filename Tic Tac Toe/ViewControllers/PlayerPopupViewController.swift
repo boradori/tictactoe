@@ -14,7 +14,7 @@ class PlayerPopupViewController: UIViewController {
   @IBOutlet weak var playerSymbolImageView: UIImageView!
   @IBOutlet weak var removePhotoButton: UIButton!
   
-  
+  var doneSaving: ((_ player: Player) -> ())? // callback function for passing data over to game view controller
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -33,6 +33,21 @@ class PlayerPopupViewController: UIViewController {
   }
   
   @IBAction func save(_ sender: UIButton) {
+    guard let playerName = playerNameTextField.text else {
+      return
+    }
+    
+    guard let playerSymbol = playerSymbolImageView.image else {
+      return
+    }
+    
+    player?.name = playerName
+    player?.symbol = playerSymbol
+    
+    if let doneSaving = doneSaving {
+      doneSaving(player!)
+    }
+    dismiss(animated: true, completion: nil)
   }
   
   @IBAction func cancel(_ sender: UIButton) {

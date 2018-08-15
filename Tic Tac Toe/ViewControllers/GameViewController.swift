@@ -18,8 +18,18 @@ class GameViewController: UIViewController {
   private var board = Board()
   private var gameIsActive = true
   
-  var playerOne = Player(number: 1, name: "Player 1", symbol: UIImage(assetIdentifier: .cross), wins: 0)
-  var playerTwo = Player(number: 2, name: "Player 2", symbol: UIImage(assetIdentifier: .nought), wins: 0)
+  private var playerOne = Player(number: 1, name: "Player 1", symbol: UIImage(assetIdentifier: .cross), wins: 0) {
+    didSet {
+      playerOneCardView.playerNameLabel.text = playerOne.name
+      playerOneCardView.playerSymbolImageView.image = playerOne.symbol
+    }
+  }
+  private var playerTwo = Player(number: 2, name: "Player 2", symbol: UIImage(assetIdentifier: .nought), wins: 0) {
+    didSet {
+      playerTwoCardView.playerNameLabel.text = playerTwo.name
+      playerTwoCardView.playerSymbolImageView.image = playerTwo.symbol
+    }
+  }
   
   @IBOutlet weak var gridView: UIView!
   
@@ -88,6 +98,7 @@ class GameViewController: UIViewController {
     let storyboard = UIStoryboard(name: "PlayerPopup", bundle: nil)
     if let vc = storyboard.instantiateViewController(withIdentifier: "playerPopupVC") as? PlayerPopupViewController {
       vc.player = playerOne
+      vc.doneSaving = doneSaving
       
       present(vc, animated: true, completion: nil)
     }
@@ -97,13 +108,18 @@ class GameViewController: UIViewController {
     let storyboard = UIStoryboard(name: "PlayerPopup", bundle: nil)
     if let vc = storyboard.instantiateViewController(withIdentifier: "playerPopupVC") as? PlayerPopupViewController {
       vc.player = playerTwo
+      vc.doneSaving = doneSaving
       
       present(vc, animated: true, completion: nil)
     }
   }
-
   
-  private func presentPlayerCardPopup(_ playerNumber: Int) {
+  private func doneSaving(_ player: Player) {
+    if player.number == 1 {
+      playerOne = player
+    } else {
+      playerTwo = player
+    }
   }
 
   
