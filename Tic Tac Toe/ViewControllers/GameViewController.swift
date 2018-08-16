@@ -35,8 +35,6 @@ class GameViewController: UIViewController {
     }
   }
   
-  @IBOutlet weak var gridView: UIView!
-  
   private var activePlayer = 1 {
     didSet {
       if activePlayer == 1 {
@@ -96,6 +94,15 @@ class GameViewController: UIViewController {
   
   @IBAction func openMenu(_ sender: UIBarButtonItem) {
     slideSidebar(closeOnly: false)
+  }
+  
+  @IBAction func openRecords(_ sender: UIBarButtonItem) {
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    if let vc = storyboard.instantiateViewController(withIdentifier: "recordsVC") as? RecordsTableViewController {
+      vc.games = games
+      
+      navigationController?.pushViewController(vc, animated: true)
+    }
   }
   
   @objc private func playerOneCardTapped() {

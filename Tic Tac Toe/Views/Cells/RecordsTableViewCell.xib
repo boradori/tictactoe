@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecordCell" id="KGk-i7-Jjw" customClass="RecordsTableViewCell" customModule="Tic_Tac_Toe" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="332" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="332" height="99.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cwj-Yg-g0z">
+                        <rect key="frame" x="10" y="9" width="80" height="80"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="80" id="4GF-B6-anQ"/>
+                            <constraint firstAttribute="width" constant="80" id="tJb-k2-Een"/>
+                        </constraints>
+                    </imageView>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="CMW-G6-WXT">
+                        <rect key="frame" x="98" y="10" width="224" height="80"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i5B-Qn-JXI">
+                                <rect key="frame" x="0.0" y="0.0" width="224" height="40"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 1 won" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KW2-Ss-e5R">
+                                <rect key="frame" x="0.0" y="40" width="224" height="40"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="KW2-Ss-e5R" firstAttribute="height" secondItem="i5B-Qn-JXI" secondAttribute="height" id="gbE-UG-BOj"/>
+                        </constraints>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="CMW-G6-WXT" secondAttribute="bottom" constant="10" id="LQs-dW-1f8"/>
+                    <constraint firstItem="CMW-G6-WXT" firstAttribute="leading" secondItem="Cwj-Yg-g0z" secondAttribute="trailing" constant="8" symbolic="YES" id="SMM-Hr-7xp"/>
+                    <constraint firstItem="Cwj-Yg-g0z" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Wtt-tc-4JS"/>
+                    <constraint firstItem="CMW-G6-WXT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Zmx-Ga-EnF"/>
+                    <constraint firstAttribute="trailing" secondItem="CMW-G6-WXT" secondAttribute="trailing" constant="10" id="dMc-Cd-CqS"/>
+                    <constraint firstItem="Cwj-Yg-g0z" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="isk-Jq-QS2"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="gameBoardImageView" destination="Cwj-Yg-g0z" id="LgS-Nm-4yp"/>
+                <outlet property="gameNameLabel" destination="i5B-Qn-JXI" id="rQH-K6-LGN"/>
+                <outlet property="gameResultLabel" destination="KW2-Ss-e5R" id="NHp-eh-OQB"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

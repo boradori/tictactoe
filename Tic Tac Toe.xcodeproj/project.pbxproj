@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C075FF821258BDD00BD883B /* RecordsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C075FF721258BDD00BD883B /* RecordsTableViewController.swift */; };
+		0C076000212593C600BD883B /* RecordsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C075FFE212593C600BD883B /* RecordsTableViewCell.swift */; };
+		0C076001212593C600BD883B /* RecordsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C075FFF212593C600BD883B /* RecordsTableViewCell.xib */; };
 		0C08B396211FF1000038B98E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C08B395211FF1000038B98E /* AppDelegate.swift */; };
 		0C08B398211FF1000038B98E /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C08B397211FF1000038B98E /* GameViewController.swift */; };
 		0C08B39B211FF1000038B98E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C08B399211FF1000038B98E /* Main.storyboard */; };
@@ -29,6 +32,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C075FF721258BDD00BD883B /* RecordsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsTableViewController.swift; sourceTree = "<group>"; };
+		0C075FFE212593C600BD883B /* RecordsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsTableViewCell.swift; sourceTree = "<group>"; };
+		0C075FFF212593C600BD883B /* RecordsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecordsTableViewCell.xib; sourceTree = "<group>"; };
 		0C08B392211FF1000038B98E /* Tic Tac Toe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tic Tac Toe.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C08B395211FF1000038B98E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C08B397211FF1000038B98E /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +72,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C075FF92125938F00BD883B /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				0C075FFE212593C600BD883B /* RecordsTableViewCell.swift */,
+				0C075FFF212593C600BD883B /* RecordsTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		0C08B389211FF1000038B98E = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +129,7 @@
 				0C08B397211FF1000038B98E /* GameViewController.swift */,
 				0CCDBB3A21244D7800E33DCD /* PlayerPopupViewController.swift */,
 				0CCDBB4C212510F500E33DCD /* ResultPopupViewController.swift */,
+				0C075FF721258BDD00BD883B /* RecordsTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -121,6 +137,7 @@
 		0C88D52A21205A810012427D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0C075FF92125938F00BD883B /* Cells */,
 				0C88D54A21227F950012427D /* Storyboards */,
 				0C88D5382121A8220012427D /* PlayerCardView.xib */,
 				0C88D53A2121AB150012427D /* PlayerCardView.swift */,
@@ -219,6 +236,7 @@
 				0CCDBB4B212510CB00E33DCD /* ResultPopup.storyboard in Resources */,
 				0C08B3A0211FF1020038B98E /* LaunchScreen.storyboard in Resources */,
 				0CCDBB3E21244D9B00E33DCD /* PlayerPopup.storyboard in Resources */,
+				0C076001212593C600BD883B /* RecordsTableViewCell.xib in Resources */,
 				0C88D5392121A8220012427D /* PlayerCardView.xib in Resources */,
 				0C08B39D211FF1020038B98E /* Assets.xcassets in Resources */,
 				0C08B39B211FF1000038B98E /* Main.storyboard in Resources */,
@@ -257,8 +275,10 @@
 				0C88D52821204ED90012427D /* Player.swift in Sources */,
 				0C88D53321206BCE0012427D /* UIImage+AssetIdentifier.swift in Sources */,
 				0C08B396211FF1000038B98E /* AppDelegate.swift in Sources */,
+				0C076000212593C600BD883B /* RecordsTableViewCell.swift in Sources */,
 				0CCDBB4021245E9F00E33DCD /* UIView+RoundedCorners.swift in Sources */,
 				0C88D52E21205E800012427D /* Board.swift in Sources */,
+				0C075FF821258BDD00BD883B /* RecordsTableViewController.swift in Sources */,
 				0CCDBB4D212510F500E33DCD /* ResultPopupViewController.swift in Sources */,
 				0C88D52C21205E590012427D /* Game.swift in Sources */,
 			);

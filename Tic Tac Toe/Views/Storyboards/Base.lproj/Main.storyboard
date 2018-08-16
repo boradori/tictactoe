@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -252,7 +251,6 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="pK4-OS-NdF" firstAttribute="top" secondItem="kNt-I1-pBa" secondAttribute="top" id="T9D-Y2-pkR"/>
-                                            <constraint firstAttribute="width" secondItem="kNt-I1-pBa" secondAttribute="height" multiplier="375:403" id="acc-96-K29"/>
                                             <constraint firstItem="pK4-OS-NdF" firstAttribute="leading" secondItem="kNt-I1-pBa" secondAttribute="leading" id="kUj-l2-rRn"/>
                                             <constraint firstAttribute="trailing" secondItem="pK4-OS-NdF" secondAttribute="trailing" id="lZ2-ig-RFX"/>
                                             <constraint firstAttribute="bottom" secondItem="pK4-OS-NdF" secondAttribute="bottom" id="uem-cO-yOn"/>
@@ -311,10 +309,13 @@
                                 <action selector="openMenu:" destination="BYZ-38-t0r" id="WaJ-fR-fdm"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="QLc-U1-eBd"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="QLc-U1-eBd">
+                            <connections>
+                                <action selector="openRecords:" destination="BYZ-38-t0r" id="pTe-jO-Kdb"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="gridView" destination="kNt-I1-pBa" id="Ygl-a8-UZ4"/>
                         <outlet property="menuLeadingConstraint" destination="X7V-an-sSC" id="8mT-ZI-cqJ"/>
                         <outlet property="playerOneCardView" destination="oXi-d8-eda" id="X1s-nC-W2D"/>
                         <outlet property="playerTwoCardView" destination="423-fg-gp6" id="ufT-kA-ABd"/>
@@ -323,6 +324,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="741.60000000000002" y="-564.46776611694156"/>
+        </scene>
+        <!--Records Table View Controller-->
+        <scene sceneID="5CE-MF-mcX">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N2j-eM-iM1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController storyboardIdentifier="recordsVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="LYH-FU-Jc3" customClass="RecordsTableViewController" customModule="Tic_Tac_Toe" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="v3H-uH-4js">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <connections>
+                            <outlet property="dataSource" destination="LYH-FU-Jc3" id="IGg-8Q-tnM"/>
+                            <outlet property="delegate" destination="LYH-FU-Jc3" id="tKc-PV-p8s"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="1618" y="-564"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Unu-09-eXB">

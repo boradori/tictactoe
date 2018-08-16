@@ -13,9 +13,10 @@ extension UIImage {
     case cross = "cross"
     case nought = "nought"
     case cancelButton = "cancelButton"
+    case hamburger = "hamburger"
     case emptyGrid = "emptyGrid"
     
-    static let values = [cross, nought, cancelButton, emptyGrid]
+    static let values = [cross, nought, cancelButton, emptyGrid, hamburger]
   }
   
   convenience init!(assetIdentifier: AssetIdentifier) {
