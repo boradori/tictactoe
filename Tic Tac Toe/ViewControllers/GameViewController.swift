@@ -95,7 +95,7 @@ class GameViewController: UIViewController {
   }
   
   @IBAction func openMenu(_ sender: UIBarButtonItem) {
-    slideSidebar()
+    slideSidebar(closeOnly: false)
   }
   
   @objc private func playerOneCardTapped() {
@@ -219,6 +219,8 @@ class GameViewController: UIViewController {
       let button = view.viewWithTag(i) as! UIButton
       button.setImage(UIImage(assetIdentifier: .emptyGrid), for: UIControlState())
     }
+    
+    slideSidebar(closeOnly: true)
   }
   
   private func showResult() {
@@ -233,12 +235,16 @@ class GameViewController: UIViewController {
     }
   }
   
-  private func slideSidebar() {
-    menuLeadingConstraint.constant = menuLeadingConstraint.constant == 0 ? -140 : 0
+  private func slideSidebar(closeOnly: Bool) {
+    if closeOnly == true {
+      menuLeadingConstraint.constant = -140
+    } else {
+      menuLeadingConstraint.constant = menuLeadingConstraint.constant == 0 ? -140 : 0
+    }
+    
     UIView.animate(withDuration: 0.2) {
       self.view.layoutIfNeeded()
     }
   }
-  
 }
 
