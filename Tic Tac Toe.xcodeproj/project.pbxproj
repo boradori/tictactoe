@@ -153,10 +153,10 @@
 		0C88D52A21205A810012427D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				0C075FF92125938F00BD883B /* Cells */,
-				0C88D54A21227F950012427D /* Storyboards */,
 				0C88D5382121A8220012427D /* PlayerCardView.xib */,
 				0C88D53A2121AB150012427D /* PlayerCardView.swift */,
+				0C075FF92125938F00BD883B /* Cells */,
+				0C88D54A21227F950012427D /* Storyboards */,
 			);
 			path = Views;
 			sourceTree = "<group>";

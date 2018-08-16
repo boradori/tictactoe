@@ -94,19 +94,6 @@ class GameViewController: UIViewController {
     playerTwoCardView.addGestureRecognizer(playerTwoCardTapGesture)
   }
   
-  @IBAction func openMenu(_ sender: UIBarButtonItem) {
-    slideSidebar(closeOnly: false)
-  }
-  
-  @IBAction func openRecords(_ sender: UIBarButtonItem) {
-    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    if let vc = storyboard.instantiateViewController(withIdentifier: "recordsVC") as? RecordsTableViewController {
-      vc.games = games
-      
-      navigationController?.pushViewController(vc, animated: true)
-    }
-  }
-  
   @objc private func playerOneCardTapped() {
     let storyboard = UIStoryboard(name: "PlayerPopup", bundle: nil)
     if let vc = storyboard.instantiateViewController(withIdentifier: "playerPopupVC") as? PlayerPopupViewController {
@@ -134,6 +121,92 @@ class GameViewController: UIViewController {
       playerOne = player
     } else {
       playerTwo = player
+    }
+  }
+  
+  private func slideSidebar(closeOnly: Bool) {
+    if closeOnly == true {
+      backgroundButton.alpha = 0.0
+      menuLeadingConstraint.constant = -140
+    } else {
+      if menuLeadingConstraint.constant == 0 {
+        backgroundButton.alpha = 0.0
+        menuLeadingConstraint.constant = -140
+      } else if menuLeadingConstraint.constant == -140 {
+        backgroundButton.alpha = 0.5
+        menuLeadingConstraint.constant = 0
+      }
+    }
+    
+    UIView.animate(withDuration: 0.2) {
+      self.view.layoutIfNeeded()
+    }
+  }
+  
+  
+  // MARK: - Save Game
+  
+  private func saveGame(_ winner: Player?) {
+    if winner?.number == playerOne.number {
+      playerOne.wins += 1
+    } else if winner?.number == playerTwo.number {
+      playerTwo.wins += 1
+    }
+    
+    game.board = board
+    games.append(game)
+  }
+  
+  
+  // MARK: - Start a New Game
+  
+  private func startNewGame() {
+    gameIsStarted = false
+    gameCount += 1
+    let gameName = "Game \(gameCount)"
+    title = gameName
+    board = Board()
+    game = Game(name: gameName, result: nil, board: board)
+    
+    gameIsActive = true
+    activePlayer = 1
+    
+    for i in 1...9 {
+      let button = view.viewWithTag(i) as! UIButton
+      button.setImage(UIImage(assetIdentifier: .emptyGrid), for: UIControlState())
+    }
+    
+    slideSidebar(closeOnly: true)
+  }
+  
+  
+  // MARK: - Show Result
+  
+  private func showResult() {
+    let storyboard = UIStoryboard(name: "ResultPopup", bundle: nil)
+    if let vc = storyboard.instantiateViewController(withIdentifier: "resultPopupVC") as? ResultPopupViewController {
+      vc.game = game
+      vc.continuePlaying = { [weak self] in
+        self?.startNewGame()
+      }
+      
+      present(vc, animated: true, completion: nil)
+    }
+  }
+  
+  
+  // MARK: - Actions
+  
+  @IBAction func openMenu(_ sender: UIBarButtonItem) {
+    slideSidebar(closeOnly: false)
+  }
+  
+  @IBAction func openRecords(_ sender: UIBarButtonItem) {
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    if let vc = storyboard.instantiateViewController(withIdentifier: "recordsVC") as? RecordsTableViewController {
+      vc.games = games
+      
+      navigationController?.pushViewController(vc, animated: true)
     }
   }
   
@@ -198,69 +271,10 @@ class GameViewController: UIViewController {
     }
   }
   
-  private func saveGame(_ winner: Player?) {
-    if winner?.number == playerOne.number {
-      playerOne.wins += 1
-    } else if winner?.number == playerTwo.number {
-      playerTwo.wins += 1
-    }
-    
-    game.board = board
-    games.append(game)
-  }
+  
   
   @IBAction func newGameTapped(_ sender: UIButton) {
     startNewGame()
-  }
-  
-  private func startNewGame() {
-    gameIsStarted = false
-    gameCount += 1
-    let gameName = "Game \(gameCount)"
-    title = gameName
-    board = Board()
-    game = Game(name: gameName, result: nil, board: board)
-    
-    gameIsActive = true
-    activePlayer = 1
-    
-    for i in 1...9 {
-      let button = view.viewWithTag(i) as! UIButton
-      button.setImage(UIImage(assetIdentifier: .emptyGrid), for: UIControlState())
-    }
-    
-    slideSidebar(closeOnly: true)
-  }
-  
-  private func showResult() {
-    let storyboard = UIStoryboard(name: "ResultPopup", bundle: nil)
-    if let vc = storyboard.instantiateViewController(withIdentifier: "resultPopupVC") as? ResultPopupViewController {
-      vc.game = game
-      vc.continuePlaying = { [weak self] in
-        self?.startNewGame()
-      }
-      
-      present(vc, animated: true, completion: nil)
-    }
-  }
-  
-  private func slideSidebar(closeOnly: Bool) {
-    if closeOnly == true {
-      backgroundButton.alpha = 0.0
-      menuLeadingConstraint.constant = -140
-    } else {
-      if menuLeadingConstraint.constant == 0 {
-        backgroundButton.alpha = 0.0
-        menuLeadingConstraint.constant = -140
-      } else if menuLeadingConstraint.constant == -140 {
-        backgroundButton.alpha = 0.5
-        menuLeadingConstraint.constant = 0
-      }
-    }
-    
-    UIView.animate(withDuration: 0.2) {
-      self.view.layoutIfNeeded()
-    }
   }
   
   @IBAction func tapToDismissSlidebar(_ sender: UIButton) {
