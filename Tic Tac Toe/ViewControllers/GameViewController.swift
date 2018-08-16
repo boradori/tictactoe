@@ -11,7 +11,6 @@ import UIKit
 class GameViewController: UIViewController {
   private var gameCount = 1
   private var game = Game(name: "Game 1", result: nil, board: nil)
-  private var result: String?
   
   var games = [Game]()
   
@@ -22,13 +21,17 @@ class GameViewController: UIViewController {
   private var playerOne = Player(number: 1, name: "Player 1", symbol: UIImage(assetIdentifier: .cross), wins: 0) {
     didSet {
       playerOneCardView.playerNameLabel.text = playerOne.name
-      playerOneCardView.playerSymbolImageView.image = playerOne.symbol
+      DispatchQueue.main.async {
+        self.playerOneCardView.playerSymbolImageView.image = self.playerOne.symbol
+      }
     }
   }
   private var playerTwo = Player(number: 2, name: "Player 2", symbol: UIImage(assetIdentifier: .nought), wins: 0) {
     didSet {
       playerTwoCardView.playerNameLabel.text = playerTwo.name
-      playerTwoCardView.playerSymbolImageView.image = playerTwo.symbol
+      DispatchQueue.main.async {
+        self.playerTwoCardView.playerSymbolImageView.image = self.playerTwo.symbol
+      }
     }
   }
   
@@ -124,7 +127,6 @@ class GameViewController: UIViewController {
       playerTwo = player
     }
   }
-
   
   @IBAction func placeSymbol(_ sender: UIButton) {
     if board.grids[sender.tag - 1] == 0 && gameIsActive == true {
@@ -150,16 +152,18 @@ class GameViewController: UIViewController {
       if board.grids[combination[0]] != 0 && board.grids[combination[0]] == board.grids[combination[1]] && board.grids[combination[1]] == board.grids[combination[2]] && gameIsActive == true {
         if board.grids[combination[0]] == 1 {
           print("cross")
-          result = "\(playerOne.name) WON!"
+          game.result = "\(playerOne.name) WON!"
           saveGame(playerOne)
           playerOneCardView.playerWinCountLabel.text = "\(playerOne.wins)"
           // pop up to ask for a new game
+          showResult()
         } else {
           print("nought")
-          result = "\(playerTwo.name) WON!"
+          game.result = "\(playerTwo.name) WON!"
           saveGame(playerTwo)
           playerTwoCardView.playerWinCountLabel.text = "\(playerTwo.wins)"
           // pop up to ask for a new game
+          showResult()
         }
         gameIsActive = false
       }
@@ -176,11 +180,25 @@ class GameViewController: UIViewController {
       }
       
       if gameIsActive == false {
-        result = "DRAW!"
+        game.result = "DRAW!"
         saveGame(nil)
         // pop up to ask for a new game
+        showResult()
       }
     }
+  }
+  
+  private func saveGame(_ winner: Player?) {
+    if winner?.number == playerOne.number {
+      playerOne.wins += 1
+    } else if winner?.number == playerTwo.number {
+      playerTwo.wins += 1
+    } else {
+      return
+    }
+    
+    game.board = board
+    games.append(game)
   }
   
   @IBAction func newGameTapped(_ sender: UIButton) {
@@ -201,20 +219,18 @@ class GameViewController: UIViewController {
       let button = view.viewWithTag(i) as! UIButton
       button.setImage(UIImage(assetIdentifier: .emptyGrid), for: UIControlState())
     }
-    
-    slideSidebar()
   }
   
-  private func saveGame(_ winner: Player?) {
-    if winner?.number == playerOne.number {
-      playerOne.wins += 1
-    } else if winner?.number == playerTwo.number {
-      playerTwo.wins += 1
-    } else {
-      return
+  private func showResult() {
+    let storyboard = UIStoryboard(name: "ResultPopup", bundle: nil)
+    if let vc = storyboard.instantiateViewController(withIdentifier: "resultPopupVC") as? ResultPopupViewController {
+      vc.game = game
+      vc.continuePlaying = { [weak self] in
+        self?.startNewGame()
+      }
+      
+      present(vc, animated: true, completion: nil)
     }
-    
-    games.append(game)
   }
   
   private func slideSidebar() {

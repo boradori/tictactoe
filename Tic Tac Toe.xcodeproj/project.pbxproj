@@ -24,6 +24,8 @@
 		0CCDBB432124995700E33DCD /* YPImagePicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CCDBB422124995700E33DCD /* YPImagePicker.framework */; };
 		0CCDBB4621249DC100E33DCD /* PryntTrimmerView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CCDBB4521249DC100E33DCD /* PryntTrimmerView.framework */; };
 		0CCDBB4821249E1400E33DCD /* Stevia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CCDBB4721249E1400E33DCD /* Stevia.framework */; };
+		0CCDBB4B212510CB00E33DCD /* ResultPopup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CCDBB49212510CB00E33DCD /* ResultPopup.storyboard */; };
+		0CCDBB4D212510F500E33DCD /* ResultPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCDBB4C212510F500E33DCD /* ResultPopupViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		0CCDBB422124995700E33DCD /* YPImagePicker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YPImagePicker.framework; path = Carthage/Build/iOS/YPImagePicker.framework; sourceTree = "<group>"; };
 		0CCDBB4521249DC100E33DCD /* PryntTrimmerView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PryntTrimmerView.framework; path = Carthage/Build/iOS/PryntTrimmerView.framework; sourceTree = "<group>"; };
 		0CCDBB4721249E1400E33DCD /* Stevia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Stevia.framework; path = Carthage/Build/iOS/Stevia.framework; sourceTree = "<group>"; };
+		0CCDBB4A212510CB00E33DCD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Tic Tac Toe/Views/Storyboards/Base.lproj/ResultPopup.storyboard"; sourceTree = "<group>"; };
+		0CCDBB4C212510F500E33DCD /* ResultPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultPopupViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +113,7 @@
 			children = (
 				0C08B397211FF1000038B98E /* GameViewController.swift */,
 				0CCDBB3A21244D7800E33DCD /* PlayerPopupViewController.swift */,
+				0CCDBB4C212510F500E33DCD /* ResultPopupViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -137,6 +142,7 @@
 			children = (
 				0C08B399211FF1000038B98E /* Main.storyboard */,
 				0CCDBB3C21244D9B00E33DCD /* PlayerPopup.storyboard */,
+				0CCDBB49212510CB00E33DCD /* ResultPopup.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -210,6 +216,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CCDBB4B212510CB00E33DCD /* ResultPopup.storyboard in Resources */,
 				0C08B3A0211FF1020038B98E /* LaunchScreen.storyboard in Resources */,
 				0CCDBB3E21244D9B00E33DCD /* PlayerPopup.storyboard in Resources */,
 				0C88D5392121A8220012427D /* PlayerCardView.xib in Resources */,
@@ -252,6 +259,7 @@
 				0C08B396211FF1000038B98E /* AppDelegate.swift in Sources */,
 				0CCDBB4021245E9F00E33DCD /* UIView+RoundedCorners.swift in Sources */,
 				0C88D52E21205E800012427D /* Board.swift in Sources */,
+				0CCDBB4D212510F500E33DCD /* ResultPopupViewController.swift in Sources */,
 				0C88D52C21205E590012427D /* Game.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,6 +289,14 @@
 				0CCDBB3D21244D9B00E33DCD /* Base */,
 			);
 			name = PlayerPopup.storyboard;
+			sourceTree = "<group>";
+		};
+		0CCDBB49212510CB00E33DCD /* ResultPopup.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0CCDBB4A212510CB00E33DCD /* Base */,
+			);
+			name = ResultPopup.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
