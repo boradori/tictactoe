@@ -53,13 +53,15 @@ class GameViewController: UIViewController {
     }
   }
   
+  
+  @IBOutlet weak var backgroundButton: UIButton! // to dismiss sidebar by tapping on screen
   @IBOutlet weak var menuLeadingConstraint: NSLayoutConstraint!
   @IBOutlet weak var playerOneCardView: PlayerCardView!
   @IBOutlet weak var playerTwoCardView: PlayerCardView!
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+    title = "Game 1"
     playerCardSetup()
   }
   
@@ -158,17 +160,17 @@ class GameViewController: UIViewController {
     for combination in board.winningCombinations {
       if board.grids[combination[0]] != 0 && board.grids[combination[0]] == board.grids[combination[1]] && board.grids[combination[1]] == board.grids[combination[2]] && gameIsActive == true {
         if board.grids[combination[0]] == 1 {
-          print("cross")
-          game.result = "\(playerOne.name) WON!"
+          game.result = "\(playerOne.name) Wins!"
           saveGame(playerOne)
           playerOneCardView.playerWinCountLabel.text = "\(playerOne.wins)"
+          
           // pop up to ask for a new game
           showResult()
         } else {
-          print("nought")
-          game.result = "\(playerTwo.name) WON!"
+          game.result = "\(playerTwo.name) Wins!"
           saveGame(playerTwo)
           playerTwoCardView.playerWinCountLabel.text = "\(playerTwo.wins)"
+          
           // pop up to ask for a new game
           showResult()
         }
@@ -189,6 +191,7 @@ class GameViewController: UIViewController {
       if gameIsActive == false {
         game.result = "DRAW!"
         saveGame(nil)
+        
         // pop up to ask for a new game
         showResult()
       }
@@ -200,8 +203,6 @@ class GameViewController: UIViewController {
       playerOne.wins += 1
     } else if winner?.number == playerTwo.number {
       playerTwo.wins += 1
-    } else {
-      return
     }
     
     game.board = board
@@ -216,6 +217,7 @@ class GameViewController: UIViewController {
     gameIsStarted = false
     gameCount += 1
     let gameName = "Game \(gameCount)"
+    title = gameName
     board = Board()
     game = Game(name: gameName, result: nil, board: board)
     
@@ -244,13 +246,32 @@ class GameViewController: UIViewController {
   
   private func slideSidebar(closeOnly: Bool) {
     if closeOnly == true {
+      backgroundButton.alpha = 0.0
       menuLeadingConstraint.constant = -140
     } else {
-      menuLeadingConstraint.constant = menuLeadingConstraint.constant == 0 ? -140 : 0
+      if menuLeadingConstraint.constant == 0 {
+        backgroundButton.alpha = 0.0
+        menuLeadingConstraint.constant = -140
+      } else if menuLeadingConstraint.constant == -140 {
+        backgroundButton.alpha = 0.5
+        menuLeadingConstraint.constant = 0
+      }
     }
     
     UIView.animate(withDuration: 0.2) {
       self.view.layoutIfNeeded()
+    }
+  }
+  
+  @IBAction func tapToDismissSlidebar(_ sender: UIButton) {
+    slideSidebar(closeOnly: true)
+  }
+  
+  @IBAction func viewAcknowledgement(_ sender: UIButton) {
+    slideSidebar(closeOnly: true)
+    let storyboard = UIStoryboard(name: "Acknowledgement", bundle: nil)
+    if let vc = storyboard.instantiateViewController(withIdentifier: "acknowledgementVC") as? AcknowledgementViewController {
+      navigationController?.pushViewController(vc, animated: true)
     }
   }
 }

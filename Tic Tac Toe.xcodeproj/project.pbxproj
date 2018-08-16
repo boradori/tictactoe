@@ -10,6 +10,9 @@
 		0C075FF821258BDD00BD883B /* RecordsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C075FF721258BDD00BD883B /* RecordsTableViewController.swift */; };
 		0C076000212593C600BD883B /* RecordsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C075FFE212593C600BD883B /* RecordsTableViewCell.swift */; };
 		0C076001212593C600BD883B /* RecordsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C075FFF212593C600BD883B /* RecordsTableViewCell.xib */; };
+		0C0760042125D57F00BD883B /* Acknowledgement.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C0760022125D57F00BD883B /* Acknowledgement.storyboard */; };
+		0C0760062125D5A600BD883B /* AcknowledgementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0760052125D5A600BD883B /* AcknowledgementViewController.swift */; };
+		0C0760082125E66B00BD883B /* Theme.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C0760072125E66B00BD883B /* Theme.xcassets */; };
 		0C08B396211FF1000038B98E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C08B395211FF1000038B98E /* AppDelegate.swift */; };
 		0C08B398211FF1000038B98E /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C08B397211FF1000038B98E /* GameViewController.swift */; };
 		0C08B39B211FF1000038B98E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C08B399211FF1000038B98E /* Main.storyboard */; };
@@ -35,6 +38,9 @@
 		0C075FF721258BDD00BD883B /* RecordsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsTableViewController.swift; sourceTree = "<group>"; };
 		0C075FFE212593C600BD883B /* RecordsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsTableViewCell.swift; sourceTree = "<group>"; };
 		0C075FFF212593C600BD883B /* RecordsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecordsTableViewCell.xib; sourceTree = "<group>"; };
+		0C0760032125D57F00BD883B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Tic Tac Toe/Views/Storyboards/Base.lproj/Acknowledgement.storyboard"; sourceTree = "<group>"; };
+		0C0760052125D5A600BD883B /* AcknowledgementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcknowledgementViewController.swift; sourceTree = "<group>"; };
+		0C0760072125E66B00BD883B /* Theme.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Theme.xcassets; sourceTree = "<group>"; };
 		0C08B392211FF1000038B98E /* Tic Tac Toe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tic Tac Toe.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C08B395211FF1000038B98E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C08B397211FF1000038B98E /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +87,15 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		0C0760092125E6A600BD883B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0C08B39C211FF1020038B98E /* Assets.xcassets */,
+				0C0760072125E66B00BD883B /* Theme.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		0C08B389211FF1000038B98E = {
 			isa = PBXGroup;
 			children = (
@@ -101,12 +116,12 @@
 		0C08B394211FF1000038B98E /* Tic Tac Toe */ = {
 			isa = PBXGroup;
 			children = (
+				0C0760092125E6A600BD883B /* Resources */,
 				0C88D531212066210012427D /* Extensions */,
 				0C88D52621204D720012427D /* Models */,
 				0C88D529212059F40012427D /* ViewControllers */,
 				0C88D52A21205A810012427D /* Views */,
 				0C08B395211FF1000038B98E /* AppDelegate.swift */,
-				0C08B39C211FF1020038B98E /* Assets.xcassets */,
 				0C08B39E211FF1020038B98E /* LaunchScreen.storyboard */,
 				0C08B3A1211FF1020038B98E /* Info.plist */,
 			);
@@ -130,6 +145,7 @@
 				0CCDBB3A21244D7800E33DCD /* PlayerPopupViewController.swift */,
 				0CCDBB4C212510F500E33DCD /* ResultPopupViewController.swift */,
 				0C075FF721258BDD00BD883B /* RecordsTableViewController.swift */,
+				0C0760052125D5A600BD883B /* AcknowledgementViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -160,6 +176,7 @@
 				0C08B399211FF1000038B98E /* Main.storyboard */,
 				0CCDBB3C21244D9B00E33DCD /* PlayerPopup.storyboard */,
 				0CCDBB49212510CB00E33DCD /* ResultPopup.storyboard */,
+				0C0760022125D57F00BD883B /* Acknowledgement.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -234,10 +251,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				0CCDBB4B212510CB00E33DCD /* ResultPopup.storyboard in Resources */,
+				0C0760042125D57F00BD883B /* Acknowledgement.storyboard in Resources */,
 				0C08B3A0211FF1020038B98E /* LaunchScreen.storyboard in Resources */,
 				0CCDBB3E21244D9B00E33DCD /* PlayerPopup.storyboard in Resources */,
 				0C076001212593C600BD883B /* RecordsTableViewCell.xib in Resources */,
 				0C88D5392121A8220012427D /* PlayerCardView.xib in Resources */,
+				0C0760082125E66B00BD883B /* Theme.xcassets in Resources */,
 				0C08B39D211FF1020038B98E /* Assets.xcassets in Resources */,
 				0C08B39B211FF1000038B98E /* Main.storyboard in Resources */,
 			);
@@ -277,6 +296,7 @@
 				0C08B396211FF1000038B98E /* AppDelegate.swift in Sources */,
 				0C076000212593C600BD883B /* RecordsTableViewCell.swift in Sources */,
 				0CCDBB4021245E9F00E33DCD /* UIView+RoundedCorners.swift in Sources */,
+				0C0760062125D5A600BD883B /* AcknowledgementViewController.swift in Sources */,
 				0C88D52E21205E800012427D /* Board.swift in Sources */,
 				0C075FF821258BDD00BD883B /* RecordsTableViewController.swift in Sources */,
 				0CCDBB4D212510F500E33DCD /* ResultPopupViewController.swift in Sources */,
@@ -287,6 +307,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		0C0760022125D57F00BD883B /* Acknowledgement.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0C0760032125D57F00BD883B /* Base */,
+			);
+			name = Acknowledgement.storyboard;
+			sourceTree = "<group>";
+		};
 		0C08B399211FF1000038B98E /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

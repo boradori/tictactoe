@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -294,7 +293,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" name="BackgroundColor"/>
+                                <color key="backgroundColor" red="0.1486686643" green="0.28849539819999998" blue="0.66490101440000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="gu5-nO-M9v" secondAttribute="bottom" constant="8" id="73N-AJ-FhC"/>
                                     <constraint firstItem="gu5-nO-M9v" firstAttribute="leading" secondItem="xj3-Qe-4wg" secondAttribute="leading" constant="8" id="K6q-rx-AGK"/>
@@ -330,13 +329,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="R2F-sB-UHD">
                         <barButtonItem key="leftBarButtonItem" image="hamburger" id="E48-jj-a3z">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="openMenu:" destination="BYZ-38-t0r" id="WaJ-fR-fdm"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="QLc-U1-eBd">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="openRecords:" destination="BYZ-38-t0r" id="pTe-jO-Kdb"/>
                             </connections>
@@ -371,6 +368,61 @@
             </objects>
             <point key="canvasLocation" x="1618" y="-564"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="fTl-36-yxC">
+            <objects>
+                <viewController id="3G2-wK-PIC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3Q5-R6-ZYp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qtT-Rk-3Rm">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <mutableString key="text">
+
+
+YPImagePicker
+
+The MIT License (MIT)
+
+Copyright (c) 2016 ytakzk
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="qtT-Rk-3Rm" firstAttribute="bottom" secondItem="RCP-Xv-NRT" secondAttribute="bottom" id="92S-Om-ahP"/>
+                            <constraint firstItem="qtT-Rk-3Rm" firstAttribute="leading" secondItem="RCP-Xv-NRT" secondAttribute="leading" id="FWg-3w-o3V"/>
+                            <constraint firstItem="qtT-Rk-3Rm" firstAttribute="top" secondItem="RCP-Xv-NRT" secondAttribute="top" id="PBK-ag-p7I"/>
+                            <constraint firstItem="qtT-Rk-3Rm" firstAttribute="trailing" secondItem="RCP-Xv-NRT" secondAttribute="trailing" id="YIZ-3u-6T4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="RCP-Xv-NRT"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a0n-Fm-ACp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="665" y="220"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Unu-09-eXB">
             <objects>
@@ -393,8 +445,5 @@
     <resources>
         <image name="emptyGrid" width="240" height="256"/>
         <image name="hamburger" width="24" height="11"/>
-        <namedColor name="BackgroundColor">
-            <color red="0.37599998712539673" green="0.7369999885559082" blue="0.81999999284744263" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
     </resources>
 </document>

@@ -19,24 +19,17 @@
                 <rect key="frame" x="0.0" y="0.0" width="332" height="99.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cwj-Yg-g0z">
-                        <rect key="frame" x="10" y="9" width="80" height="80"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="80" id="4GF-B6-anQ"/>
-                            <constraint firstAttribute="width" constant="80" id="tJb-k2-Een"/>
-                        </constraints>
-                    </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="CMW-G6-WXT">
-                        <rect key="frame" x="98" y="10" width="224" height="80"/>
+                        <rect key="frame" x="100" y="10" width="222" height="80"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i5B-Qn-JXI">
-                                <rect key="frame" x="0.0" y="0.0" width="224" height="40"/>
+                                <rect key="frame" x="0.0" y="0.0" width="222" height="40"/>
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 1 won" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KW2-Ss-e5R">
-                                <rect key="frame" x="0.0" y="40" width="224" height="40"/>
+                                <rect key="frame" x="0.0" y="40" width="222" height="40"/>
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -46,21 +39,146 @@
                             <constraint firstItem="KW2-Ss-e5R" firstAttribute="height" secondItem="i5B-Qn-JXI" secondAttribute="height" id="gbE-UG-BOj"/>
                         </constraints>
                     </stackView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fzf-mh-bvn">
+                        <rect key="frame" x="10" y="10" width="80" height="80"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="k7H-Uu-UyB">
+                                <rect key="frame" x="0.0" y="0.0" width="27" height="27"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ISO-yt-3gW">
+                                <rect key="frame" x="27" y="0.0" width="27" height="27"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CKe-sf-hfj">
+                                <rect key="frame" x="53" y="0.0" width="27" height="27"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" tag="4" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1jL-xE-kID">
+                                <rect key="frame" x="0.0" y="27" width="27" height="27"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" tag="5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TA0-14-pYt">
+                                <rect key="frame" x="27" y="27" width="27" height="27"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" tag="6" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9Nz-TB-69P">
+                                <rect key="frame" x="53" y="27" width="27" height="27"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" tag="7" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NSj-E6-OLO">
+                                <rect key="frame" x="0.0" y="53" width="27" height="27"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" tag="8" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="amC-c3-V94">
+                                <rect key="frame" x="27" y="53" width="27" height="27"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" tag="9" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="P92-vh-ynF">
+                                <rect key="frame" x="53" y="53" width="27" height="27"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="NSj-E6-OLO" firstAttribute="top" secondItem="k7H-Uu-UyB" secondAttribute="bottom" constant="26" id="2AU-cD-sHp"/>
+                            <constraint firstItem="amC-c3-V94" firstAttribute="top" secondItem="P92-vh-ynF" secondAttribute="top" id="3yy-lu-weA"/>
+                            <constraint firstItem="CKe-sf-hfj" firstAttribute="height" secondItem="k7H-Uu-UyB" secondAttribute="height" id="4m3-Dg-Vde"/>
+                            <constraint firstItem="k7H-Uu-UyB" firstAttribute="top" secondItem="ISO-yt-3gW" secondAttribute="top" id="6VO-fd-zBn"/>
+                            <constraint firstItem="1jL-xE-kID" firstAttribute="top" secondItem="TA0-14-pYt" secondAttribute="top" id="7kz-fZ-gik"/>
+                            <constraint firstItem="TA0-14-pYt" firstAttribute="leading" secondItem="amC-c3-V94" secondAttribute="leading" id="EAX-Wn-aKr"/>
+                            <constraint firstItem="1jL-xE-kID" firstAttribute="centerY" secondItem="fzf-mh-bvn" secondAttribute="centerY" id="EO3-ui-nXE"/>
+                            <constraint firstItem="NSj-E6-OLO" firstAttribute="top" secondItem="amC-c3-V94" secondAttribute="top" id="FAL-zE-yak"/>
+                            <constraint firstItem="TA0-14-pYt" firstAttribute="top" secondItem="9Nz-TB-69P" secondAttribute="top" id="FNd-67-1Kv"/>
+                            <constraint firstItem="ISO-yt-3gW" firstAttribute="leading" secondItem="TA0-14-pYt" secondAttribute="leading" id="HAI-AP-uYr"/>
+                            <constraint firstItem="1jL-xE-kID" firstAttribute="leading" secondItem="NSj-E6-OLO" secondAttribute="leading" id="I5Z-L4-4zs"/>
+                            <constraint firstItem="P92-vh-ynF" firstAttribute="height" secondItem="k7H-Uu-UyB" secondAttribute="height" id="Jg1-iN-VPr"/>
+                            <constraint firstItem="k7H-Uu-UyB" firstAttribute="leading" secondItem="1jL-xE-kID" secondAttribute="leading" id="Jw4-Km-P2V"/>
+                            <constraint firstItem="amC-c3-V94" firstAttribute="width" secondItem="k7H-Uu-UyB" secondAttribute="width" id="LrP-MF-0hN"/>
+                            <constraint firstItem="NSj-E6-OLO" firstAttribute="height" secondItem="k7H-Uu-UyB" secondAttribute="height" id="QZ9-0h-WSc"/>
+                            <constraint firstItem="ISO-yt-3gW" firstAttribute="centerX" secondItem="fzf-mh-bvn" secondAttribute="centerX" id="Qrv-ir-R06"/>
+                            <constraint firstItem="ISO-yt-3gW" firstAttribute="height" secondItem="k7H-Uu-UyB" secondAttribute="height" id="Tjk-gJ-HTu"/>
+                            <constraint firstItem="1jL-xE-kID" firstAttribute="width" secondItem="k7H-Uu-UyB" secondAttribute="width" id="Utr-f1-4AT"/>
+                            <constraint firstItem="1jL-xE-kID" firstAttribute="height" secondItem="k7H-Uu-UyB" secondAttribute="height" id="Uvo-7A-92D"/>
+                            <constraint firstItem="CKe-sf-hfj" firstAttribute="leading" secondItem="k7H-Uu-UyB" secondAttribute="trailing" constant="26" id="XFE-tM-sma"/>
+                            <constraint firstItem="amC-c3-V94" firstAttribute="height" secondItem="k7H-Uu-UyB" secondAttribute="height" id="aNA-0I-W4a"/>
+                            <constraint firstAttribute="trailing" secondItem="CKe-sf-hfj" secondAttribute="trailing" id="axf-Sw-ONh"/>
+                            <constraint firstItem="ISO-yt-3gW" firstAttribute="width" secondItem="k7H-Uu-UyB" secondAttribute="width" id="dbf-Fu-bp3"/>
+                            <constraint firstItem="CKe-sf-hfj" firstAttribute="width" secondItem="k7H-Uu-UyB" secondAttribute="width" id="dqs-9S-xa2"/>
+                            <constraint firstItem="CKe-sf-hfj" firstAttribute="leading" secondItem="9Nz-TB-69P" secondAttribute="leading" id="eCY-4K-W07"/>
+                            <constraint firstAttribute="height" constant="80" id="efY-MG-4cS"/>
+                            <constraint firstItem="ISO-yt-3gW" firstAttribute="top" secondItem="CKe-sf-hfj" secondAttribute="top" id="fDW-EZ-yta"/>
+                            <constraint firstItem="9Nz-TB-69P" firstAttribute="width" secondItem="k7H-Uu-UyB" secondAttribute="width" id="jGd-z3-UkH"/>
+                            <constraint firstItem="9Nz-TB-69P" firstAttribute="height" secondItem="k7H-Uu-UyB" secondAttribute="height" id="jQT-8w-Rvc"/>
+                            <constraint firstItem="9Nz-TB-69P" firstAttribute="leading" secondItem="P92-vh-ynF" secondAttribute="leading" id="k7j-ga-zHm"/>
+                            <constraint firstItem="TA0-14-pYt" firstAttribute="width" secondItem="k7H-Uu-UyB" secondAttribute="width" id="nsx-8P-Ftz"/>
+                            <constraint firstAttribute="bottom" secondItem="NSj-E6-OLO" secondAttribute="bottom" id="pBF-YT-8ua"/>
+                            <constraint firstItem="k7H-Uu-UyB" firstAttribute="top" secondItem="fzf-mh-bvn" secondAttribute="top" id="pze-sQ-6V3"/>
+                            <constraint firstItem="NSj-E6-OLO" firstAttribute="width" secondItem="k7H-Uu-UyB" secondAttribute="width" id="t7T-KR-Bpy"/>
+                            <constraint firstItem="P92-vh-ynF" firstAttribute="width" secondItem="k7H-Uu-UyB" secondAttribute="width" id="tBZ-Fl-tuN"/>
+                            <constraint firstItem="TA0-14-pYt" firstAttribute="height" secondItem="k7H-Uu-UyB" secondAttribute="height" id="vP9-oq-iiz"/>
+                            <constraint firstAttribute="width" constant="80" id="vms-qa-ivT"/>
+                            <constraint firstItem="k7H-Uu-UyB" firstAttribute="leading" secondItem="fzf-mh-bvn" secondAttribute="leading" id="wEq-bd-VdI"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="CMW-G6-WXT" secondAttribute="bottom" constant="10" id="LQs-dW-1f8"/>
-                    <constraint firstItem="CMW-G6-WXT" firstAttribute="leading" secondItem="Cwj-Yg-g0z" secondAttribute="trailing" constant="8" symbolic="YES" id="SMM-Hr-7xp"/>
-                    <constraint firstItem="Cwj-Yg-g0z" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Wtt-tc-4JS"/>
+                    <constraint firstItem="fzf-mh-bvn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="LnC-vb-w3F"/>
                     <constraint firstItem="CMW-G6-WXT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Zmx-Ga-EnF"/>
                     <constraint firstAttribute="trailing" secondItem="CMW-G6-WXT" secondAttribute="trailing" constant="10" id="dMc-Cd-CqS"/>
-                    <constraint firstItem="Cwj-Yg-g0z" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="isk-Jq-QS2"/>
+                    <constraint firstItem="CMW-G6-WXT" firstAttribute="leading" secondItem="fzf-mh-bvn" secondAttribute="trailing" constant="10" id="tdM-tY-SXH"/>
+                    <constraint firstItem="fzf-mh-bvn" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ycz-0y-8ce"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="gameBoardImageView" destination="Cwj-Yg-g0z" id="LgS-Nm-4yp"/>
                 <outlet property="gameNameLabel" destination="i5B-Qn-JXI" id="rQH-K6-LGN"/>
                 <outlet property="gameResultLabel" destination="KW2-Ss-e5R" id="NHp-eh-OQB"/>
+                <outlet property="grid0" destination="k7H-Uu-UyB" id="aok-kE-e3R"/>
+                <outlet property="grid1" destination="ISO-yt-3gW" id="qsh-WG-HvD"/>
+                <outlet property="grid2" destination="CKe-sf-hfj" id="dW8-ml-OYA"/>
+                <outlet property="grid3" destination="1jL-xE-kID" id="YaF-Ls-Jbq"/>
+                <outlet property="grid4" destination="TA0-14-pYt" id="Qpn-5z-s6z"/>
+                <outlet property="grid5" destination="9Nz-TB-69P" id="bK2-CB-0Th"/>
+                <outlet property="grid6" destination="NSj-E6-OLO" id="i01-qc-W9d"/>
+                <outlet property="grid7" destination="amC-c3-V94" id="7vd-IO-kO1"/>
+                <outlet property="grid8" destination="P92-vh-ynF" id="qfR-6G-xrf"/>
             </connections>
         </tableViewCell>
     </objects>
