@@ -50,9 +50,6 @@
 		0CCDBB3A21244D7800E33DCD /* PlayerPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerPopupViewController.swift; sourceTree = "<group>"; };
 		0CCDBB3D21244D9B00E33DCD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Tic Tac Toe/Views/Storyboards/Base.lproj/PlayerPopup.storyboard"; sourceTree = "<group>"; };
 		0CCDBB3F21245E9F00E33DCD /* UIView+RoundedCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+RoundedCorners.swift"; sourceTree = "<group>"; };
-		0CCDBB422124995700E33DCD /* YPImagePicker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YPImagePicker.framework; path = Carthage/Build/iOS/YPImagePicker.framework; sourceTree = "<group>"; };
-		0CCDBB4521249DC100E33DCD /* PryntTrimmerView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PryntTrimmerView.framework; path = Carthage/Build/iOS/PryntTrimmerView.framework; sourceTree = "<group>"; };
-		0CCDBB4721249E1400E33DCD /* Stevia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Stevia.framework; path = Carthage/Build/iOS/Stevia.framework; sourceTree = "<group>"; };
 		0CCDBB4A212510CB00E33DCD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Tic Tac Toe/Views/Storyboards/Base.lproj/ResultPopup.storyboard"; sourceTree = "<group>"; };
 		0CCDBB4C212510F500E33DCD /* ResultPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultPopupViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -91,7 +88,6 @@
 			children = (
 				0C08B394211FF1000038B98E /* Tic Tac Toe */,
 				0C08B393211FF1000038B98E /* Products */,
-				0CCDBB412124995700E33DCD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -167,16 +163,6 @@
 				0CCDBB49212510CB00E33DCD /* ResultPopup.storyboard */,
 			);
 			path = Storyboards;
-			sourceTree = "<group>";
-		};
-		0CCDBB412124995700E33DCD /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				0CCDBB4721249E1400E33DCD /* Stevia.framework */,
-				0CCDBB4521249DC100E33DCD /* PryntTrimmerView.framework */,
-				0CCDBB422124995700E33DCD /* YPImagePicker.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -428,10 +414,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QG3L9Q959N;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "Tic Tac Toe/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -450,10 +432,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QG3L9Q959N;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "Tic Tac Toe/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
