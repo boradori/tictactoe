@@ -21,17 +21,11 @@ class GameViewController: UIViewController {
   private var playerOne = Player(number: 1, name: "Player 1", symbol: UIImage(assetIdentifier: .cross), wins: 0) {
     didSet {
       playerOneCardView.playerNameLabel.text = playerOne.name
-      DispatchQueue.main.async {
-        self.playerOneCardView.playerSymbolImageView.image = self.playerOne.symbol
-      }
     }
   }
   private var playerTwo = Player(number: 2, name: "Player 2", symbol: UIImage(assetIdentifier: .nought), wins: 0) {
     didSet {
       playerTwoCardView.playerNameLabel.text = playerTwo.name
-      DispatchQueue.main.async {
-        self.playerTwoCardView.playerSymbolImageView.image = self.playerTwo.symbol
-      }
     }
   }
   
@@ -52,7 +46,6 @@ class GameViewController: UIViewController {
       }
     }
   }
-  
   
   @IBOutlet weak var backgroundButton: UIButton! // to dismiss sidebar by tapping on screen
   @IBOutlet weak var menuLeadingConstraint: NSLayoutConstraint!
@@ -158,7 +151,7 @@ class GameViewController: UIViewController {
   }
   
   
-  // MARK: - Start a New Game
+  // MARK: - Start New Game
   
   private func startNewGame() {
     gameIsStarted = false
@@ -271,22 +264,12 @@ class GameViewController: UIViewController {
     }
   }
   
-  
-  
   @IBAction func newGameTapped(_ sender: UIButton) {
     startNewGame()
   }
   
   @IBAction func tapToDismissSlidebar(_ sender: UIButton) {
     slideSidebar(closeOnly: true)
-  }
-  
-  @IBAction func viewAcknowledgement(_ sender: UIButton) {
-    slideSidebar(closeOnly: true)
-    let storyboard = UIStoryboard(name: "Acknowledgement", bundle: nil)
-    if let vc = storyboard.instantiateViewController(withIdentifier: "acknowledgementVC") as? AcknowledgementViewController {
-      navigationController?.pushViewController(vc, animated: true)
-    }
   }
 }
 

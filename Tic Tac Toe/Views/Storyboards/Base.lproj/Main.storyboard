@@ -283,24 +283,11 @@
                                             <action selector="newGameTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fSh-s3-ptj"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gu5-nO-M9v">
-                                        <rect key="frame" x="8" y="559" width="124" height="36"/>
-                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
-                                        <state key="normal" title="YPImagePicker">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="viewAcknowledgement:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3au-YW-dyP"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" name="BackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="gu5-nO-M9v" secondAttribute="bottom" constant="8" id="73N-AJ-FhC"/>
-                                    <constraint firstItem="gu5-nO-M9v" firstAttribute="leading" secondItem="xj3-Qe-4wg" secondAttribute="leading" constant="8" id="K6q-rx-AGK"/>
                                     <constraint firstItem="GFu-zo-Z4k" firstAttribute="leading" secondItem="xj3-Qe-4wg" secondAttribute="leading" constant="8" id="b4c-jF-Aht"/>
                                     <constraint firstItem="GFu-zo-Z4k" firstAttribute="top" secondItem="xj3-Qe-4wg" secondAttribute="top" constant="8" id="g1a-ZI-Mml"/>
-                                    <constraint firstAttribute="trailing" secondItem="gu5-nO-M9v" secondAttribute="trailing" constant="8" id="hNf-g5-U14"/>
                                     <constraint firstAttribute="trailing" secondItem="GFu-zo-Z4k" secondAttribute="trailing" constant="8" id="nHM-77-RwJ"/>
                                     <constraint firstAttribute="width" constant="140" id="qsh-Fk-3gt"/>
                                 </constraints>

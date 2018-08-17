@@ -1,9 +1,0 @@
-{
-  "commitish" : "bbe86ad58b04e2429a20fcfe92058225612b2ea5",
-  "iOS" : [
-    {
-      "name" : "PryntTrimmerView",
-      "hash" : "a680fd34eb50269efb1cefe02c4215abb12bf1e0b274c761856c9bb63869b4d1"
-    }
-  ]
-}

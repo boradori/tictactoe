@@ -66,17 +66,6 @@
                                             <constraint firstItem="TiZ-rV-8BV" firstAttribute="width" secondItem="gUw-zU-nas" secondAttribute="width" id="rIj-sZ-4Op"/>
                                         </constraints>
                                     </stackView>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r0S-LY-Uaq">
-                                        <rect key="frame" x="191" y="57" width="15" height="15"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="15" id="cqL-6y-Gjm"/>
-                                            <constraint firstAttribute="width" constant="15" id="tX6-kU-vBP"/>
-                                        </constraints>
-                                        <state key="normal" image="cancelButton"/>
-                                        <connections>
-                                            <action selector="removePhoto:" destination="wgF-2T-VUy" eventType="touchUpInside" id="Q16-Zt-6c0"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -88,9 +77,7 @@
                                     <constraint firstAttribute="height" constant="240" id="WRg-v5-IAO"/>
                                     <constraint firstAttribute="trailing" secondItem="2lf-uF-eTK" secondAttribute="trailing" id="agA-uP-2WA"/>
                                     <constraint firstItem="nDK-PN-qDn" firstAttribute="centerX" secondItem="gQc-60-dhv" secondAttribute="centerX" id="am9-2r-WYf"/>
-                                    <constraint firstItem="r0S-LY-Uaq" firstAttribute="leading" secondItem="nDK-PN-qDn" secondAttribute="trailing" constant="8" id="f3Z-NH-qsu"/>
                                     <constraint firstItem="nDK-PN-qDn" firstAttribute="centerY" secondItem="gQc-60-dhv" secondAttribute="centerY" id="nKB-to-khC"/>
-                                    <constraint firstItem="r0S-LY-Uaq" firstAttribute="top" secondItem="nDK-PN-qDn" secondAttribute="top" id="sB1-3S-Dtq"/>
                                     <constraint firstAttribute="width" constant="240" id="v2U-z6-fGy"/>
                                 </constraints>
                             </view>
@@ -105,7 +92,6 @@
                     <connections>
                         <outlet property="playerNameTextField" destination="TLm-za-Ayn" id="Wth-C4-cA7"/>
                         <outlet property="playerSymbolImageView" destination="nDK-PN-qDn" id="oZ0-Jk-vbq"/>
-                        <outlet property="removePhotoButton" destination="r0S-LY-Uaq" id="2jr-lX-iUT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zjW-fw-LcT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -114,7 +100,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="cancelButton" width="92" height="92"/>
         <image name="cross" width="244" height="262"/>
     </resources>
 </document>
