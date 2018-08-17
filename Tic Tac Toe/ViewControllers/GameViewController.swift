@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GameViewController: UIViewController {
+class GameViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
   private var gameCount = 1
   private var game = Game(name: "Game 1", result: nil, board: nil)
   
@@ -52,10 +52,16 @@ class GameViewController: UIViewController {
   @IBOutlet weak var playerOneCardView: PlayerCardView!
   @IBOutlet weak var playerTwoCardView: PlayerCardView!
   
+  private let itemsPerRow = 5
+  
+  private let sectionInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+  @IBOutlet weak var collectionView: UICollectionView!
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     title = "Game 1"
     playerCardSetup()
+    collectionViewSetup()
   }
   
   
@@ -115,6 +121,17 @@ class GameViewController: UIViewController {
     } else {
       playerTwo = player
     }
+  }
+  
+  private func collectionViewSetup() {
+//    guard let collectionView = collectionView, let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
+//
+//    flowLayout.minimumInteritemSpacing = margin
+//    flowLayout.minimumLineSpacing = margin
+//    flowLayout.sectionInset = UIEdgeInsets(top: margin, left: margin, bottom: margin, right: margin)
+//
+//    collectionView.contentInsetAdjustmentBehavior = .always
+//    collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "collectionViewCell")
   }
   
   private func slideSidebar(closeOnly: Bool) {
@@ -203,67 +220,6 @@ class GameViewController: UIViewController {
     }
   }
   
-  @IBAction func placeSymbol(_ sender: UIButton) {
-    if board.grids[sender.tag - 1] == 0 && gameIsActive == true {
-      board.grids[sender.tag - 1] = activePlayer
-      
-      gameIsStarted = true
-      
-      if activePlayer == 1 {
-        DispatchQueue.main.async {
-          sender.setImage(self.playerOne.symbol, for: UIControlState())
-        }
-        
-        activePlayer = 2
-      } else {
-        DispatchQueue.main.async {
-          sender.setImage(self.playerTwo.symbol, for: UIControlState())
-        }
-        activePlayer = 1
-      }
-    }
-    
-    for combination in board.winningCombinations {
-      if board.grids[combination[0]] != 0 && board.grids[combination[0]] == board.grids[combination[1]] && board.grids[combination[1]] == board.grids[combination[2]] && gameIsActive == true {
-        if board.grids[combination[0]] == 1 {
-          game.result = "\(playerOne.name) Wins!"
-          saveGame(playerOne)
-          playerOneCardView.playerWinCountLabel.text = "\(playerOne.wins)"
-          
-          // pop up to ask for a new game
-          showResult()
-        } else {
-          game.result = "\(playerTwo.name) Wins!"
-          saveGame(playerTwo)
-          playerTwoCardView.playerWinCountLabel.text = "\(playerTwo.wins)"
-          
-          // pop up to ask for a new game
-          showResult()
-        }
-        gameIsActive = false
-      }
-    }
-    
-    if gameIsActive == true {
-      gameIsActive = false
-      
-      for grid in board.grids {
-        if grid == 0 {
-          gameIsActive = true
-          break
-        }
-      }
-      
-      if gameIsActive == false {
-        game.result = "DRAW!"
-        saveGame(nil)
-        
-        // pop up to ask for a new game
-        showResult()
-      }
-    }
-  }
-  
   @IBAction func newGameTapped(_ sender: UIButton) {
     startNewGame()
   }
@@ -271,5 +227,39 @@ class GameViewController: UIViewController {
   @IBAction func tapToDismissSlidebar(_ sender: UIButton) {
     slideSidebar(closeOnly: true)
   }
+
+  
+  // MARK: - Collection View data source
+  
+  func numberOfSections(in collectionView: UICollectionView) -> Int {
+    return itemsPerRow
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    return itemsPerRow
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath)
+    cell.backgroundColor = UIColor.orange
+    return cell
+  }
 }
 
+extension GameViewController: UICollectionViewDelegateFlowLayout {
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    let marginsAndInsets = 10 * 2 + collectionView.safeAreaInsets.left + collectionView.safeAreaInsets.right + 10 * CGFloat(itemsPerRow - 1)
+    let itemWidth = ((collectionView.bounds.size.width - marginsAndInsets) / CGFloat(itemsPerRow)).rounded(.down)
+    return CGSize(width: itemWidth, height: itemWidth)
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+    return sectionInsets
+  }
+  
+  func collectionView(_ collectionView: UICollectionView,
+                      layout collectionViewLayout: UICollectionViewLayout,
+                      minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    return sectionInsets.left
+  }
+}
