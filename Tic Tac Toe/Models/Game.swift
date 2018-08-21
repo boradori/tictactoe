@@ -12,10 +12,12 @@ struct Game {
   var name: String
   var result: String?
   var board: Board?
+  var players: [Player]?
   
-  init(name: String, result: String?, board: Board?) {
+  init(name: String, result: String?, board: Board?, players: [Player]?) {
     self.name = name
     self.result = result
     self.board = board
+    self.players = players
   }
 }

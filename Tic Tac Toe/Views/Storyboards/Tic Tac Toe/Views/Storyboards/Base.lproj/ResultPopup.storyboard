@@ -68,6 +68,12 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="How many grids? Default is 3." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l0o-Dj-fyA">
+                                        <rect key="frame" x="0.0" y="168" width="240" height="24"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -76,10 +82,13 @@
                                     <constraint firstItem="Xpc-O3-Ijp" firstAttribute="centerY" secondItem="2fo-X2-kpD" secondAttribute="centerY" id="D1B-jq-3wl"/>
                                     <constraint firstItem="NRd-mW-GCr" firstAttribute="leading" secondItem="2fo-X2-kpD" secondAttribute="leading" id="GbI-DK-2U9"/>
                                     <constraint firstAttribute="height" constant="240" id="Gsd-qI-nPY"/>
+                                    <constraint firstItem="l0o-Dj-fyA" firstAttribute="leading" secondItem="2fo-X2-kpD" secondAttribute="leading" id="JMo-eg-5Fr"/>
                                     <constraint firstAttribute="trailing" secondItem="zhj-mz-MpP" secondAttribute="trailing" id="RPS-Oc-hmG"/>
+                                    <constraint firstItem="NRd-mW-GCr" firstAttribute="top" secondItem="l0o-Dj-fyA" secondAttribute="bottom" constant="8" id="RgA-yh-maS"/>
                                     <constraint firstItem="zhj-mz-MpP" firstAttribute="top" secondItem="2fo-X2-kpD" secondAttribute="top" id="X9q-ig-Idj"/>
                                     <constraint firstItem="zhj-mz-MpP" firstAttribute="leading" secondItem="2fo-X2-kpD" secondAttribute="leading" id="eki-52-daW"/>
                                     <constraint firstAttribute="trailing" secondItem="Xpc-O3-Ijp" secondAttribute="trailing" constant="10" id="gSL-sV-nzZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="l0o-Dj-fyA" secondAttribute="trailing" id="ilv-42-jDz"/>
                                     <constraint firstAttribute="bottom" secondItem="NRd-mW-GCr" secondAttribute="bottom" id="jXX-b4-EpQ"/>
                                     <constraint firstAttribute="trailing" secondItem="NRd-mW-GCr" secondAttribute="trailing" id="qvn-Hw-Q9a"/>
                                 </constraints>
@@ -93,6 +102,7 @@
                         <viewLayoutGuide key="safeArea" id="Kkf-OF-UJ4"/>
                     </view>
                     <connections>
+                        <outlet property="gridCountTextField" destination="l0o-Dj-fyA" id="Cs6-yK-gWU"/>
                         <outlet property="resultLabel" destination="zhj-mz-MpP" id="aCi-wD-Beh"/>
                     </connections>
                 </viewController>

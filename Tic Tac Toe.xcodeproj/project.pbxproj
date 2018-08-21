@@ -11,6 +11,7 @@
 		0C076000212593C600BD883B /* RecordsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C075FFE212593C600BD883B /* RecordsTableViewCell.swift */; };
 		0C076001212593C600BD883B /* RecordsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C075FFF212593C600BD883B /* RecordsTableViewCell.xib */; };
 		0C0760082125E66B00BD883B /* Theme.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C0760072125E66B00BD883B /* Theme.xcassets */; };
+		0C07601721275D6600BD883B /* UIViewController+DismissKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C07601621275D6600BD883B /* UIViewController+DismissKeyboard.swift */; };
 		0C08B396211FF1000038B98E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C08B395211FF1000038B98E /* AppDelegate.swift */; };
 		0C08B398211FF1000038B98E /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C08B397211FF1000038B98E /* GameViewController.swift */; };
 		0C08B39B211FF1000038B98E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C08B399211FF1000038B98E /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 		0C075FFE212593C600BD883B /* RecordsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsTableViewCell.swift; sourceTree = "<group>"; };
 		0C075FFF212593C600BD883B /* RecordsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecordsTableViewCell.xib; sourceTree = "<group>"; };
 		0C0760072125E66B00BD883B /* Theme.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Theme.xcassets; sourceTree = "<group>"; };
+		0C07601621275D6600BD883B /* UIViewController+DismissKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+DismissKeyboard.swift"; sourceTree = "<group>"; };
 		0C08B392211FF1000038B98E /* Tic Tac Toe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tic Tac Toe.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C08B395211FF1000038B98E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C08B397211FF1000038B98E /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 			children = (
 				0C88D53221206BCE0012427D /* UIImage+AssetIdentifier.swift */,
 				0CCDBB3F21245E9F00E33DCD /* UIView+RoundedCorners.swift */,
+				0C07601621275D6600BD883B /* UIViewController+DismissKeyboard.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 				0CCDBB4021245E9F00E33DCD /* UIView+RoundedCorners.swift in Sources */,
 				0C88D52E21205E800012427D /* Board.swift in Sources */,
 				0C075FF821258BDD00BD883B /* RecordsTableViewController.swift in Sources */,
+				0C07601721275D6600BD883B /* UIViewController+DismissKeyboard.swift in Sources */,
 				0CCDBB4D212510F500E33DCD /* ResultPopupViewController.swift in Sources */,
 				0C88D52C21205E590012427D /* Game.swift in Sources */,
 			);

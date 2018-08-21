@@ -47,60 +47,6 @@ class RecordsTableViewController: UITableViewController {
     if let recordCell = cell as? RecordsTableViewCell {
       recordCell.gameNameLabel.text = game.name
       recordCell.gameResultLabel.text = game.result
-      
-      if game.board?.grids[0] == 1 {
-        recordCell.grid0.image = UIImage(assetIdentifier: .cross)
-      } else if game.board?.grids[0] == 2 {
-        recordCell.grid0.image = UIImage(assetIdentifier: .nought)
-      }
-      
-      if game.board?.grids[1] == 1 {
-        recordCell.grid1.image = UIImage(assetIdentifier: .cross)
-      } else if game.board?.grids[1] == 2 {
-        recordCell.grid1.image = UIImage(assetIdentifier: .nought)
-      }
-      
-      if game.board?.grids[2] == 1 {
-        recordCell.grid2.image = UIImage(assetIdentifier: .cross)
-      } else if game.board?.grids[2] == 2 {
-        recordCell.grid2.image = UIImage(assetIdentifier: .nought)
-      }
-      
-      if game.board?.grids[3] == 1 {
-        recordCell.grid3.image = UIImage(assetIdentifier: .cross)
-      } else if game.board?.grids[3] == 2 {
-        recordCell.grid3.image = UIImage(assetIdentifier: .nought)
-      }
-      
-      if game.board?.grids[4] == 1 {
-        recordCell.grid4.image = UIImage(assetIdentifier: .cross)
-      } else if game.board?.grids[4] == 2 {
-        recordCell.grid4.image = UIImage(assetIdentifier: .nought)
-      }
-      
-      if game.board?.grids[5] == 1 {
-        recordCell.grid5.image = UIImage(assetIdentifier: .cross)
-      } else if game.board?.grids[5] == 2 {
-        recordCell.grid5.image = UIImage(assetIdentifier: .nought)
-      }
-      
-      if game.board?.grids[6] == 1 {
-        recordCell.grid6.image = UIImage(assetIdentifier: .cross)
-      } else if game.board?.grids[6] == 2 {
-        recordCell.grid6.image = UIImage(assetIdentifier: .nought)
-      }
-      
-      if game.board?.grids[7] == 1 {
-        recordCell.grid7.image = UIImage(assetIdentifier: .cross)
-      } else if game.board?.grids[7] == 2 {
-        recordCell.grid7.image = UIImage(assetIdentifier: .nought)
-      }
-      
-      if game.board?.grids[8] == 1 {
-        recordCell.grid8.image = UIImage(assetIdentifier: .cross)
-      } else if game.board?.grids[8] == 2 {
-        recordCell.grid8.image = UIImage(assetIdentifier: .nought)
-      }
     }
 
     return cell

@@ -10,11 +10,16 @@ import UIKit
 
 class ResultPopupViewController: UIViewController {
   @IBOutlet weak var resultLabel: UILabel!
+  @IBOutlet weak var gridCountTextField: UITextField!
+  
   var game: Game?
-  var continuePlaying: (() -> ())?
+  var continuePlaying: ((_ numberInGridTextField: Int) -> ())?
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    hideKeyboardWhenTappedAround()
+    hideKeyboardWhenDrag()
     resultLabelSetup()
   }
   
@@ -25,9 +30,23 @@ class ResultPopupViewController: UIViewController {
   }
   
   @IBAction func yesTapped(_ sender: UIButton) {
-    if let continuePlaying = continuePlaying {
-      continuePlaying()
+    if let numberOfGrids = gridCountTextField.text {
+      if Int(numberOfGrids)! < 3 {
+        gridCountTextField.placeholder = "Please enter 3 or higher."
+      } else if Int(numberOfGrids)! % 2 == 0 {
+        gridCountTextField.placeholder = "Please enter an odd number."
+      } else {
+        if let continuePlaying = continuePlaying {
+          continuePlaying(Int(numberOfGrids)!)
+        }
+      }
+    } else {
+      if let continuePlaying = continuePlaying {
+        continuePlaying(3)
+      }
     }
+    
+    dismissKeyboard()
     dismiss(animated: true, completion: nil)
   }
   
