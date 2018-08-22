@@ -20,16 +20,16 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="CMW-G6-WXT">
-                        <rect key="frame" x="223" y="10" width="99" height="80"/>
+                        <rect key="frame" x="10" y="10" width="312" height="80"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i5B-Qn-JXI">
-                                <rect key="frame" x="0.0" y="0.0" width="99" height="40"/>
+                                <rect key="frame" x="0.0" y="0.0" width="312" height="40"/>
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 1 won" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KW2-Ss-e5R">
-                                <rect key="frame" x="0.0" y="40" width="99" height="40"/>
+                                <rect key="frame" x="0.0" y="40" width="312" height="40"/>
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -44,6 +44,7 @@
                     <constraint firstAttribute="bottom" secondItem="CMW-G6-WXT" secondAttribute="bottom" constant="10" id="LQs-dW-1f8"/>
                     <constraint firstItem="CMW-G6-WXT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Zmx-Ga-EnF"/>
                     <constraint firstAttribute="trailing" secondItem="CMW-G6-WXT" secondAttribute="trailing" constant="10" id="dMc-Cd-CqS"/>
+                    <constraint firstItem="CMW-G6-WXT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="di3-vf-rwU"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

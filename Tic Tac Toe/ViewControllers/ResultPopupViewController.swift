@@ -30,14 +30,14 @@ class ResultPopupViewController: UIViewController {
   }
   
   @IBAction func yesTapped(_ sender: UIButton) {
-    if let numberOfGrids = gridCountTextField.text {
-      if Int(numberOfGrids)! < 3 {
+    if let numberOfGrids = Int(gridCountTextField.text!) {
+      if numberOfGrids < 3 {
         gridCountTextField.placeholder = "Please enter 3 or higher."
-      } else if Int(numberOfGrids)! % 2 == 0 {
+      } else if numberOfGrids % 2 == 0 {
         gridCountTextField.placeholder = "Please enter an odd number."
       } else {
         if let continuePlaying = continuePlaying {
-          continuePlaying(Int(numberOfGrids)!)
+          continuePlaying(numberOfGrids)
         }
       }
     } else {

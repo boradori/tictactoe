@@ -32,10 +32,7 @@ class PlayerPopupViewController: UIViewController {
   
   @IBAction func save(_ sender: UIButton) {
     guard let playerName = playerNameTextField.text else { return }
-    guard let playerSymbol = playerSymbolImageView.image else { return }
-    
     player?.name = playerName
-    player?.symbol = playerSymbol
     
     if let doneSaving = doneSaving {
       doneSaving(player!)

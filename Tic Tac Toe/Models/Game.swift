@@ -20,4 +20,8 @@ struct Game {
     self.board = board
     self.players = players
   }
+  
+//  mutating func createBoard(_ numberOfRowsAndCols: Int) {
+//    
+//  }
 }

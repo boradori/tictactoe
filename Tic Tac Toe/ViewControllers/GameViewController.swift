@@ -15,7 +15,6 @@ class GameViewController: UIViewController, UICollectionViewDataSource, UICollec
   var games = [Game]()
   
   private var board: Board?
-  private var gameIsActive = true
   private var gameIsStarted = false
   
   private var playerOne = Player(number: 1, name: "Player 1", symbol: UIImage(assetIdentifier: .cross), wins: 0) {
@@ -29,7 +28,7 @@ class GameViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
   }
   
-  private var activePlayer = 1 { // activePlayer = game.activePlayer
+  private var activePlayer = 1 {
     didSet {
       if activePlayer == 1 {
         playerOneCardView.playerCardFrame.layer.borderColor = UIColor.black.cgColor
@@ -52,8 +51,6 @@ class GameViewController: UIViewController, UICollectionViewDataSource, UICollec
   @IBOutlet weak var menuLeadingConstraint: NSLayoutConstraint!
   @IBOutlet weak var playerOneCardView: PlayerCardView!
   @IBOutlet weak var playerTwoCardView: PlayerCardView!
-  
-  private var itemsPerRowAndCol = 3
   
   private let sectionInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
   @IBOutlet weak var collectionView: UICollectionView!
@@ -152,11 +149,9 @@ class GameViewController: UIViewController, UICollectionViewDataSource, UICollec
   private func createBoard(_ numberOfRowsAndCols: Int) {
     let grids = Array(repeating: Array(repeating: 0, count: numberOfRowsAndCols), count: numberOfRowsAndCols)
     board = Board(grids: grids, numberOfGrids: numberOfRowsAndCols * numberOfRowsAndCols, moveIndex: 0)
-    
-    removeCellImages()
   }
   
-  private func removeCellImages() {
+  private func removeCellImages() { // parameter collection view
     // remove imageView from all cell's contentView
     for i in 0..<collectionView.visibleCells.count {
       collectionView.visibleCells[i].isUserInteractionEnabled = true
@@ -177,10 +172,9 @@ class GameViewController: UIViewController, UICollectionViewDataSource, UICollec
     let gameName = "Game \(gameCount)"
     title = gameName
     createBoard(numberOfRowsAndCols)
+    removeCellImages()
     game = Game(name: gameName, result: nil, board: board, players: [playerOne, playerTwo])
     activePlayer = game.players![0].number
-
-    gameIsActive = true
     
     dismissKeyboard()
     slideSidebar(closeOnly: true)
@@ -189,30 +183,69 @@ class GameViewController: UIViewController, UICollectionViewDataSource, UICollec
   
   // MARK: - Check winning conditions
   
-  private func checkWinningConditions(_ board: Board, playerNumber: Int) {
+  private func checkRow(_ board: Board, row: Int, col: Int, playerNumber: Int) {
     let numberOfRowsAndCols = board.grids.count
-
-    var rowCrossed = 0
-    var colCrossed = 0
-    var diagRToLCrossed = 0
-    var diagLToRCrossed = numberOfRowsAndCols - 1
-    for i in 0..<numberOfRowsAndCols {
-      while rowCrossed <= numberOfRowsAndCols && colCrossed <= numberOfRowsAndCols && diagRToLCrossed <= numberOfRowsAndCols && diagLToRCrossed >= 0 {
-        if rowCrossed == numberOfRowsAndCols - 1 || colCrossed == numberOfRowsAndCols - 1 || diagRToLCrossed == numberOfRowsAndCols - 1 || diagLToRCrossed == 0 {
-          print("Player \(playerNumber) wins!")
-          break
-        } else if board.grids[i][rowCrossed] == playerNumber && board.grids[i][rowCrossed] == board.grids[i][rowCrossed + 1] {
-          rowCrossed += 1
-        } else if board.grids[colCrossed][i] == playerNumber && board.grids[colCrossed][i] == board.grids[colCrossed + 1][i] {
-          colCrossed += 1
-        } else if board.grids.indices.contains(diagRToLCrossed + 1) && board.grids.indices.contains(i + 1) && board.grids[i][diagRToLCrossed] == playerNumber && board.grids[i][diagRToLCrossed] == board.grids[i + 1][diagRToLCrossed + 1] {
-          diagRToLCrossed += 1
-        } else if board.grids.indices.contains(diagLToRCrossed - 1) && board.grids.indices.contains(i + 1) && board.grids[i][diagLToRCrossed] == playerNumber && board.grids[i][diagLToRCrossed] == board.grids[i + 1][diagLToRCrossed - 1]  {
-          diagLToRCrossed -= 1
-        } else {
-          break
-        }
+    let desiredRow = Array(repeating: playerNumber, count: numberOfRowsAndCols)
+    
+    if board.grids[row] == desiredRow {
+      let player = game.players!.first(where: {$0.number == playerNumber})
+      saveGame(player)
+      showResult()
+    } else {
+      if board.grids.indices.contains(col + 1) && board.grids[row][col] == board.grids[row][col + 1] {
+        checkRow(board, row: row, col: col + 1, playerNumber: playerNumber)
       }
+    }
+  }
+  
+  private func checkCol(_ board: Board, row: Int, col: Int, playerNumber: Int) {
+    let numberOfRowsAndCols = board.grids.count
+    let desiredCol = Array(repeating: playerNumber, count: numberOfRowsAndCols)
+    
+    if board.grids.map({$0[col]}) == desiredCol {
+      let player = game.players!.first(where: {$0.number == playerNumber})
+      saveGame(player)
+      showResult()
+    } else {
+      if board.grids.indices.contains(row + 1) && board.grids[row][col] == board.grids[row + 1][col] {
+        checkCol(board, row: row + 1, col: col, playerNumber: playerNumber)
+      }
+    }
+  }
+  
+  private func checkDiag(_ board: Board, playerNumber: Int) {
+    let numberOfRowsAndCols = board.grids.count
+    let desiredDiag = Array(repeating: playerNumber, count: numberOfRowsAndCols)
+    
+    var leftToRight = [Int]()
+    var rightToLeft = [Int]()
+
+    for i in 0..<numberOfRowsAndCols {
+      leftToRight.append(board.grids[i][i])
+    }
+    
+    if leftToRight == desiredDiag {
+      let player = game.players!.first(where: {$0.number == playerNumber})
+      saveGame(player)
+      showResult()
+    }
+    
+    for i in 0..<numberOfRowsAndCols {
+      rightToLeft.append(board.grids.reversed()[i][i])
+    }
+    
+    if rightToLeft == desiredDiag {
+      let player = game.players!.first(where: {$0.number == playerNumber})
+      saveGame(player)
+      showResult()
+    }
+  }
+  
+  private func checkEndOfIndex(_ board: Board) {
+    let numberOfRowsAndCols = board.grids.count
+    if board.moveIndex == (numberOfRowsAndCols * numberOfRowsAndCols) - 1  && game.result == nil {
+      saveGame(nil)
+      showResult()
     }
   }
   
@@ -221,6 +254,31 @@ class GameViewController: UIViewController, UICollectionViewDataSource, UICollec
     playersList.append(playersList.removeFirst())
     
     return playersList
+  }
+  
+  
+  // MARK: - Save Game
+  
+  private func saveGame(_ winner: Player?) {
+    guard let winner = winner else {
+      game.result = "Draw!"
+      game.board = board
+      games.append(game)
+      return
+    }
+    
+    game.result = "\(winner.name) wins!"
+    
+    if winner.number == playerOne.number {
+      playerOne.wins += 1
+      playerOneCardView.playerWinCountLabel.text = "\(playerOne.wins)"
+    } else if winner.number == playerTwo.number {
+      playerTwo.wins += 1
+      playerTwoCardView.playerWinCountLabel.text = "\(playerTwo.wins)"
+    }
+    
+    game.board = board
+    games.append(game)
   }
   
   
@@ -239,19 +297,6 @@ class GameViewController: UIViewController, UICollectionViewDataSource, UICollec
   private func continuePlaying(_ numberInGridTextField: Int) {
     startNewGame(numberOfRowsAndCols: numberInGridTextField)
   }
-  
-  // MARK: - Save Game
-  
-  //  private func saveGame(_ winner: Player?) {
-  //    if winner?.number == playerOne.number {
-  //      playerOne.wins += 1
-  //    } else if winner?.number == playerTwo.number {
-  //      playerTwo.wins += 1
-  //    }
-  //
-  //    game.board = board
-  //    games.append(game)
-  //  }
   
   
   // MARK: - Actions
@@ -316,11 +361,17 @@ class GameViewController: UIViewController, UICollectionViewDataSource, UICollec
       cell?.contentView.addSubview(imageview)
       cell?.isUserInteractionEnabled = false
       
-      // place the grid with player number
+      // place player number on grid
       board?.grids[indexPath.section][indexPath.item] = activePlayer // current player
-      board?.moveIndex += 1
       
-      checkWinningConditions(board!, playerNumber: activePlayer)
+      // check winning conditions
+      checkRow(board!, row: indexPath.section, col: indexPath.item, playerNumber: activePlayer)
+      checkCol(board!, row: indexPath.section, col: indexPath.item, playerNumber: activePlayer)
+      checkDiag(board!, playerNumber: activePlayer)
+      
+      checkEndOfIndex(board!)
+
+      board?.moveIndex += 1
       
       // change turn
       game.players = changeTurn(game.players!)
@@ -331,8 +382,8 @@ class GameViewController: UIViewController, UICollectionViewDataSource, UICollec
 
 extension GameViewController: UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    let marginsAndInsets = 10 * 2 + collectionView.safeAreaInsets.left + collectionView.safeAreaInsets.right + 10 * CGFloat(itemsPerRowAndCol - 1)
-    let itemWidth = ((collectionView.bounds.size.width - marginsAndInsets) / CGFloat(itemsPerRowAndCol)).rounded(.down)
+    let marginsAndInsets = 10 * 2 + collectionView.safeAreaInsets.left + collectionView.safeAreaInsets.right + 10 * CGFloat((board?.grids.count)! - 1)
+    let itemWidth = ((collectionView.bounds.size.width - marginsAndInsets) / CGFloat((board?.grids.count)!)).rounded(.down)
     return CGSize(width: itemWidth, height: itemWidth)
   }
   
