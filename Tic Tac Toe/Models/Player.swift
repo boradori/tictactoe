@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct Player {
+class Player {
   var number: Int
   var name: String
   var symbol: UIImage

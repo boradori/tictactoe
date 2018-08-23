@@ -10,7 +10,6 @@ import UIKit
 
 class PlayerPopupViewController: UIViewController {
   var player: Player?
-  var gameIsStarted: Bool?
   @IBOutlet weak var playerNameTextField: UITextField!
   @IBOutlet weak var playerSymbolImageView: UIImageView!
   
