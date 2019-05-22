@@ -214,10 +214,10 @@ class GameViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     if winner.number == playerOne.number {
       playerOne.wins += 1
-      playerOneCardView.playerWinCountLabel.text = "\(playerOne.wins)"
+      playerOneCardView.playerWinCountLabel.text = "Wins: \(playerOne.wins)"
     } else if winner.number == playerTwo.number {
       playerTwo.wins += 1
-      playerTwoCardView.playerWinCountLabel.text = "\(playerTwo.wins)"
+        playerTwoCardView.playerWinCountLabel.text = "Wins: \(playerTwo.wins)"
     }
     
     games.append(game)
